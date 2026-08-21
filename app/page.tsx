@@ -58,39 +58,43 @@ export default function HomePage() {
   return (
     <div className="w-full bg-white">
       
-      {/* 1. HERO SECTION (Animated Hero Content) */}
+      {/* 1. HERO SECTION (Ultra-Smooth Initial Load Animations) */}
       <section
-        className="relative w-full min-h-[500px] sm:min-h-[560px] flex items-center justify-center text-white bg-fixed bg-cover bg-center overflow-hidden"
+        className="relative w-full min-h-[520px] sm:min-h-[580px] flex items-center justify-center text-white bg-fixed bg-cover bg-center overflow-hidden"
         style={{ backgroundImage: "url('/images/home-hero.webp')" }}
       >
         <div className="absolute inset-0 bg-slate-950/50 backdrop-brightness-95" />
 
         <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-6 py-20 lg:py-28">
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
+            initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#DFA528] leading-tight drop-shadow-md"
           >
             A Legacy of Healing. A Future of Hope.
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
+            initial={{ opacity: 0, y: 25, filter: "blur(6px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.85, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
             className="text-sm sm:text-base lg:text-lg text-white/95 leading-relaxed font-normal max-w-3xl mx-auto drop-shadow-sm"
           >
             Founded to honour 50 years of selfless service by a rural paediatrician who believed that care, dignity, and opportunity should reach every child&mdash;regardless of geography or circumstance.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            initial={{ opacity: 0, scale: 0.94, filter: "blur(6px)" }}
+            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            transition={{ duration: 0.75, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
             className="pt-2 flex flex-wrap items-center justify-center gap-4"
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+            <motion.div
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 350, damping: 22 }}
+            >
               <Link
                 href="#story"
                 className="rounded-md bg-[#DFA528] px-6 py-3 text-sm font-semibold text-slate-900 hover:bg-[#C4881E] transition-colors shadow-md block"
@@ -99,7 +103,11 @@ export default function HomePage() {
               </Link>
             </motion.div>
 
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+            <motion.div
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 350, damping: 22 }}
+            >
               <Link
                 href="/focus-areas"
                 className="rounded-md border border-white/80 bg-white/10 backdrop-blur-xs px-6 py-3 text-sm font-semibold text-white hover:bg-white hover:text-slate-900 transition-colors shadow-sm block"
@@ -108,7 +116,11 @@ export default function HomePage() {
               </Link>
             </motion.div>
 
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+            <motion.div
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 350, damping: 22 }}
+            >
               <button
                 onClick={() => openDonationModal()}
                 className="rounded-md border border-[#DFA528] bg-black/20 backdrop-blur-xs px-6 py-3 text-sm font-semibold text-[#DFA528] hover:bg-[#DFA528] hover:text-slate-900 transition-colors shadow-sm block"
@@ -120,7 +132,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. INTRO EMBLEM SECTION (Animated Slide Left/Right) */}
+      {/* 2. INTRO EMBLEM SECTION (Smooth Directional Glide) */}
       <section id="story" className="w-full bg-white py-14 sm:py-20 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -128,8 +140,8 @@ export default function HomePage() {
             {/* Left Logo Card Slide-in */}
             <SectionReveal direction="left" className="lg:col-span-5">
               <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
+                whileHover={{ scale: 1.02, y: -4 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className="relative h-64 sm:h-72 lg:h-[300px] w-full rounded-2xl bg-white p-6 border border-gray-100 shadow-xl flex items-center justify-center"
               >
                 <div className="relative h-48 w-48 sm:h-56 sm:w-56">
@@ -145,7 +157,7 @@ export default function HomePage() {
             </SectionReveal>
 
             {/* Right Text Content Slide-in */}
-            <SectionReveal direction="right" delay={0.1} className="lg:col-span-7 space-y-4">
+            <SectionReveal direction="right" delay={0.12} className="lg:col-span-7 space-y-4">
               <div className="space-y-1">
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#356877] tracking-wide">
                   CHOTHANI FOUNDATION
@@ -166,7 +178,12 @@ export default function HomePage() {
               </div>
 
               <div className="pt-2">
-                <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} className="inline-block">
+                <motion.div
+                  whileHover={{ scale: 1.04, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 350, damping: 22 }}
+                  className="inline-block"
+                >
                   <Link
                     href="/about-us"
                     className="inline-flex items-center justify-center rounded-md bg-[#DFA528] px-6 py-2.5 text-sm font-semibold text-slate-900 hover:bg-[#C4881E] transition-colors shadow-md"
@@ -181,19 +198,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. WHY CHOTHANI FOUNDATION EXISTS (Zoom Reveal) */}
+      {/* 3. WHY CHOTHANI FOUNDATION EXISTS (Zoom & Soft Blur Reveal) */}
       <section
         className="relative w-full h-[260px] sm:h-[300px] flex items-center justify-center text-white bg-fixed bg-cover bg-center overflow-hidden"
         style={{ backgroundImage: "url('/images/sector.webp')" }}
       >
         <div className="absolute inset-0 bg-[#2F6978]/80 mix-blend-multiply" />
 
-        <SectionReveal direction="zoom" className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-3 py-8 sm:py-12">
+        <SectionReveal direction="zoom" duration={0.85} className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-3 py-8 sm:py-12">
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-wide drop-shadow-md">
             Why Chothani Foundation Exists
           </h2>
           <p className="text-sm sm:text-base lg:text-lg text-white/95 leading-relaxed font-normal max-w-3xl mx-auto drop-shadow-sm">
-            Chothani Foundation exists to institutionalise compassion—to transform individual service into a sustainable legacy.
+            Chothani Foundation exists to institutionalise compassion&mdash;to transform individual service into a sustainable legacy.
           </p>
           <p className="text-xs sm:text-sm text-white/80 max-w-2xl mx-auto">
             What began as one doctor&apos;s dedication now evolves into a collective mission to uplift lives with empathy and commitment.
@@ -201,7 +218,7 @@ export default function HomePage() {
         </SectionReveal>
       </section>
 
-      {/* 4. OUR CORE FOCUS AREAS (5 Elevation Cards with Staggered Motion & Lift Effects) */}
+      {/* 4. OUR CORE FOCUS AREAS (5 Elevation Cards with Apple-grade Stagger & Spring Physics) */}
       <section id="focus-areas" className="w-full bg-white py-14 sm:py-20 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionReveal direction="up" className="text-center space-y-2 mb-12">
@@ -220,16 +237,20 @@ export default function HomePage() {
               return (
                 <motion.div
                   key={area.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.5, delay: index * 0.12 }}
-                  whileHover={{ y: -7, scale: 1.02 }}
-                  className="h-full rounded-xl bg-white p-8 border border-gray-100 shadow-md hover:shadow-xl transition-all text-center space-y-3 flex flex-col items-center justify-start group cursor-pointer"
+                  initial={{ opacity: 0, y: 40, filter: "blur(6px)" }}
+                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{
+                    duration: 0.7,
+                    delay: index * 0.14,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  whileHover={{ y: -8, scale: 1.025 }}
+                  className="h-full rounded-xl bg-white p-8 border border-gray-100 shadow-md hover:shadow-2xl transition-all duration-300 text-center space-y-3 flex flex-col items-center justify-start group cursor-pointer"
                 >
                   <motion.div
-                    whileHover={{ rotate: 8, scale: 1.15 }}
-                    transition={{ type: "spring", stiffness: 300 }}
+                    whileHover={{ rotate: 10, scale: 1.18 }}
+                    transition={{ type: "spring", stiffness: 350, damping: 18 }}
                     className="flex h-14 w-14 items-center justify-center text-[#DFA528]"
                   >
                     <IconComponent className="h-10 w-10" />
@@ -252,16 +273,20 @@ export default function HomePage() {
               return (
                 <motion.div
                   key={area.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.5, delay: (index + 3) * 0.12 }}
-                  whileHover={{ y: -7, scale: 1.02 }}
-                  className="h-full rounded-xl bg-white p-8 border border-gray-100 shadow-md hover:shadow-xl transition-all text-center space-y-3 flex flex-col items-center justify-start group cursor-pointer"
+                  initial={{ opacity: 0, y: 40, filter: "blur(6px)" }}
+                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{
+                    duration: 0.7,
+                    delay: (index + 3) * 0.14,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  whileHover={{ y: -8, scale: 1.025 }}
+                  className="h-full rounded-xl bg-white p-8 border border-gray-100 shadow-md hover:shadow-2xl transition-all duration-300 text-center space-y-3 flex flex-col items-center justify-start group cursor-pointer"
                 >
                   <motion.div
-                    whileHover={{ rotate: 8, scale: 1.15 }}
-                    transition={{ type: "spring", stiffness: 300 }}
+                    whileHover={{ rotate: 10, scale: 1.18 }}
+                    transition={{ type: "spring", stiffness: 350, damping: 18 }}
                     className="flex h-14 w-14 items-center justify-center text-[#DFA528]"
                   >
                     <IconComponent className="h-10 w-10" />
@@ -279,7 +304,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. BE PART OF THE LEGACY SECTION (Animated Image & List Slide) */}
+      {/* 5. BE PART OF THE LEGACY SECTION (Smooth Glide & Hover Scale) */}
       <section id="get-involved" className="w-full bg-[#212529] text-white py-14 sm:py-18 scroll-mt-24 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
@@ -303,27 +328,27 @@ export default function HomePage() {
                 </h4>
                 <ul className="space-y-2.5 text-sm sm:text-base text-gray-200">
                   <motion.li
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: 0.1 }}
+                    initial={{ opacity: 0, x: -25, filter: "blur(4px)" }}
+                    whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                    transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                     className="flex items-center gap-3"
                   >
                     <ArrowRightCircle className="h-5 w-5 text-[#DFA528] shrink-0" />
                     <span>Support initiatives</span>
                   </motion.li>
                   <motion.li
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: 0.2 }}
+                    initial={{ opacity: 0, x: -25, filter: "blur(4px)" }}
+                    whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                    transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                     className="flex items-center gap-3"
                   >
                     <ArrowRightCircle className="h-5 w-5 text-[#DFA528] shrink-0" />
                     <span>Collaborate on projects</span>
                   </motion.li>
                   <motion.li
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: 0.3 }}
+                    initial={{ opacity: 0, x: -25, filter: "blur(4px)" }}
+                    whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                    transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     className="flex items-center gap-3"
                   >
                     <ArrowRightCircle className="h-5 w-5 text-[#DFA528] shrink-0" />
@@ -340,8 +365,8 @@ export default function HomePage() {
             {/* Right Image Card Slide-in */}
             <SectionReveal direction="right" delay={0.15} className="lg:col-span-6">
               <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.4 }}
+                whileHover={{ scale: 1.02, y: -4 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className="relative h-80 sm:h-[420px] lg:h-[460px] w-full rounded-xl overflow-hidden shadow-2xl border border-gray-700"
               >
                 <Image
@@ -358,7 +383,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. FAMILY & GOVERNANCE SECTION (Animated Image & List Slide) */}
+      {/* 6. FAMILY & GOVERNANCE SECTION (Smooth Directional Reveals) */}
       <section className="w-full bg-white py-14 sm:py-18 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
@@ -366,8 +391,8 @@ export default function HomePage() {
             {/* Left Image: family.webp */}
             <SectionReveal direction="left" className="lg:col-span-5">
               <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.4 }}
+                whileHover={{ scale: 1.02, y: -4 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className="relative h-72 sm:h-96 lg:h-[360px] w-full rounded-xl overflow-hidden bg-white shadow-xl p-2 border border-gray-200"
               >
                 <Image
@@ -381,7 +406,7 @@ export default function HomePage() {
             </SectionReveal>
 
             {/* Right Content */}
-            <SectionReveal direction="right" delay={0.1} className="lg:col-span-7 space-y-5">
+            <SectionReveal direction="right" delay={0.12} className="lg:col-span-7 space-y-5">
               <div className="space-y-1">
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#356877]">
                   Family & Governance
@@ -422,25 +447,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. CLOSING CTA BANNER (Animated Zoom Reveal) */}
+      {/* 7. CLOSING CTA BANNER (Zoom & Blur Reveal with Spring Button) */}
       <section
         className="relative w-full h-[260px] sm:h-[300px] flex items-center justify-center text-white bg-fixed bg-cover bg-center overflow-hidden"
         style={{ backgroundImage: "url('/images/education.webp')" }}
       >
         <div className="absolute inset-0 bg-[#2F6978]/80 mix-blend-multiply" />
 
-        <SectionReveal direction="zoom" className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full flex flex-col md:flex-row items-center justify-between gap-6">
+        <SectionReveal direction="zoom" duration={0.8} className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl text-left">
             <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-wide">
               A Promise for Generations
             </h2>
             <p className="text-sm sm:text-base text-white/90 leading-relaxed font-normal">
-              This Foundation stands as a promise—to continue serving with humility, integrity, and unwavering dedication.
+              This Foundation stands as a promise&mdash;to continue serving with humility, integrity, and unwavering dedication.
             </p>
           </div>
 
           <div className="shrink-0">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+            <motion.div
+              whileHover={{ scale: 1.06, y: -2 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 350, damping: 20 }}
+            >
               <button
                 onClick={() => openDonationModal()}
                 className="inline-flex items-center justify-center border border-white/70 bg-white/10 hover:bg-white hover:text-slate-900 text-white font-semibold px-7 py-3 rounded-md transition-colors shadow-md backdrop-blur-xs text-sm sm:text-base"
