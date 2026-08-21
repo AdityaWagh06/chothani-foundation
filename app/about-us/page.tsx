@@ -12,19 +12,12 @@ export default function AboutUsPage() {
   return (
     <div className="w-full bg-white">
       
-      {/* 1. Header Banner (image001.webp background - Clear photo) */}
-      <section className="relative w-full min-h-[280px] sm:min-h-[340px] flex items-center justify-center text-white overflow-hidden py-12 sm:py-16">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/image001.webp"
-            alt="About the Foundation Header"
-            fill
-            quality={100}
-            priority
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-slate-950/40 backdrop-brightness-95" />
-        </div>
+      {/* 1. Header Banner (image001.webp - Fixed Parallax on PC, Clear Photo) */}
+      <section
+        className="relative w-full min-h-[300px] sm:min-h-[360px] flex items-center justify-center text-white bg-cover bg-center md:bg-fixed overflow-hidden py-12 sm:py-16"
+        style={{ backgroundImage: "url('/images/image001.webp')" }}
+      >
+        <div className="absolute inset-0 bg-slate-950/40 backdrop-brightness-95" />
 
         <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-3">
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#DFA528] tracking-wide drop-shadow-md">
@@ -81,18 +74,12 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* 3. Green Banner 2: Our Vision (matching Screenshot 1 Top) */}
-      <section className="relative w-full min-h-[260px] sm:min-h-[300px] flex items-center justify-center text-white overflow-hidden py-10 sm:py-14">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/sector.webp"
-            alt="Our Vision Background"
-            fill
-            quality={100}
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-[#356877]/85" />
-        </div>
+      {/* 3. Green Banner 2: Our Vision (sector.webp - Fixed Parallax on PC matching Screenshot 1 Top) */}
+      <section
+        className="relative w-full min-h-[260px] sm:min-h-[300px] flex items-center justify-center text-white bg-cover bg-center md:bg-fixed overflow-hidden py-10 sm:py-14"
+        style={{ backgroundImage: "url('/images/sector.webp')" }}
+      >
+        <div className="absolute inset-0 bg-[#356877]/85" />
 
         <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-3">
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-wide drop-shadow-md">
@@ -104,7 +91,7 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* 4. Our Mission (matching Screenshot 1 Bottom: image004.webp top on mobile, text below) */}
+      {/* 4. Our Mission (image004.webp) */}
       <section className="w-full bg-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionReveal className="rounded-2xl bg-white p-6 sm:p-10 border border-gray-100 shadow-lg">
@@ -151,18 +138,12 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* 5. Green Banner 3: A Philosophy That Guides Every Action (matching Screenshot 2 Top) */}
-      <section className="relative w-full min-h-[240px] sm:min-h-[280px] flex items-center justify-center text-white overflow-hidden py-10 sm:py-14">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/sector.webp"
-            alt="A Philosophy That Guides Every Action Background"
-            fill
-            quality={100}
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-[#356877]/85" />
-        </div>
+      {/* 5. Green Banner 3: A Philosophy That Guides Every Action (sector.webp - Fixed Parallax on PC) */}
+      <section
+        className="relative w-full min-h-[240px] sm:min-h-[280px] flex items-center justify-center text-white bg-cover bg-center md:bg-fixed overflow-hidden py-10 sm:py-14"
+        style={{ backgroundImage: "url('/images/sector.webp')" }}
+      >
+        <div className="absolute inset-0 bg-[#356877]/85" />
 
         <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-3">
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-wide drop-shadow-md">
@@ -174,7 +155,7 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* 6. Dr. Krishnakumar Chothani Section (matching Screenshot 2 Bottom & Screenshot 3) */}
+      {/* 6. Dr. Krishnakumar Chothani Section (blurry.webp) */}
       <section className="w-full bg-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionReveal className="rounded-2xl bg-white p-6 sm:p-10 border border-gray-100 shadow-lg">
@@ -191,7 +172,7 @@ export default function AboutUsPage() {
                 />
               </div>
 
-              {/* Content: Founder Profile matching SS 2 & 3 */}
+              {/* Content: Founder Profile */}
               <div className="w-full lg:col-span-7 space-y-5">
                 <div className="space-y-1">
                   <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#356877]">
@@ -248,7 +229,7 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* 7. Family & Governance (Dark #212529 section with family.webp matching SS 3 Bottom) */}
+      {/* 7. Family & Governance (Dark #212529 section with family.webp) */}
       <section className="w-full bg-[#212529] py-14 sm:py-18 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -305,18 +286,12 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* 8. Closing CTA Banner (education.webp background) */}
-      <section className="relative w-full min-h-[260px] sm:min-h-[300px] flex items-center justify-center text-white overflow-hidden py-10 sm:py-14">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/education.webp"
-            alt="Closing CTA Background"
-            fill
-            quality={100}
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-[#356877]/85" />
-        </div>
+      {/* 8. Closing CTA Banner (education.webp - Fixed Parallax on PC) */}
+      <section
+        className="relative w-full min-h-[260px] sm:min-h-[300px] flex items-center justify-center text-white bg-cover bg-center md:bg-fixed overflow-hidden py-10 sm:py-14"
+        style={{ backgroundImage: "url('/images/education.webp')" }}
+      >
+        <div className="absolute inset-0 bg-[#356877]/85" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl text-left">
