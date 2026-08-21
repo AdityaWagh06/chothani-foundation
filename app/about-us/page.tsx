@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import SectionReveal from "@/components/SectionReveal";
 import { useDonation } from "@/context/DonationContext";
-import { CheckCircle2, ArrowRightCircle, HeartHandshake } from "lucide-react";
+import { ArrowRightCircle, HeartHandshake, Heart } from "lucide-react";
 
 export default function AboutUsPage() {
   const { openDonationModal } = useDonation();
@@ -12,7 +12,7 @@ export default function AboutUsPage() {
   return (
     <div className="w-full bg-white">
       
-      {/* 1. Green Banner 1: Header Banner (image001.webp background) */}
+      {/* 1. Header Banner (image001.webp background - Clear photo) */}
       <section className="relative w-full min-h-[280px] sm:min-h-[340px] flex items-center justify-center text-white overflow-hidden py-12 sm:py-16">
         <div className="absolute inset-0 z-0">
           <Image
@@ -36,7 +36,7 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* 2. Our Story (Using image003.webp matching SS 1) */}
+      {/* 2. Our Story (image003.webp) */}
       <section className="w-full bg-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionReveal className="rounded-2xl bg-white p-6 sm:p-10 border border-gray-100 shadow-lg">
@@ -81,12 +81,12 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* 3. Green Banner 2: Our Vision & Philosophy (sector.webp background) */}
+      {/* 3. Green Banner 2: Our Vision (matching Screenshot 1 Top) */}
       <section className="relative w-full min-h-[260px] sm:min-h-[300px] flex items-center justify-center text-white overflow-hidden py-10 sm:py-14">
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/sector.webp"
-            alt="Our Vision & Philosophy Background"
+            alt="Our Vision Background"
             fill
             quality={100}
             className="object-cover object-center"
@@ -96,51 +96,22 @@ export default function AboutUsPage() {
 
         <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-3">
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-wide drop-shadow-md">
-            Our Vision & Philosophy
+            Our Vision
           </h2>
           <p className="text-sm sm:text-base lg:text-lg text-white/95 leading-relaxed font-normal max-w-3xl mx-auto drop-shadow-sm px-2">
-            Chothani Foundation is built on the belief that meaningful social change is achieved not through grand gestures alone, but through quiet, consistent, and compassionate action.
+            To build a compassionate, inclusive society where health, education, dignity, and opportunity are accessible to all&mdash;especially in rural and underserved communities.
           </p>
         </div>
       </section>
 
-      {/* 4. Our Mission (Using image004.webp matching SS 2) */}
+      {/* 4. Our Mission (matching Screenshot 1 Bottom: image004.webp top on mobile, text below) */}
       <section className="w-full bg-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionReveal className="rounded-2xl bg-white p-6 sm:p-10 border border-gray-100 shadow-lg">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
               
-              {/* Left Content: Our Mission */}
-              <div className="lg:col-span-7 space-y-5">
-                <div className="space-y-2">
-                  <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#356877]">
-                    Our Mission
-                  </h2>
-                  <div className="h-0.5 w-14 bg-[#DFA528]" />
-                </div>
-
-                <ul className="space-y-3 text-sm sm:text-base text-gray-700">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-[#DFA528] shrink-0 mt-0.5" />
-                    <span>To support healthcare initiatives for underserved rural communities</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-[#DFA528] shrink-0 mt-0.5" />
-                    <span>To enable access to quality education for deserving students</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-[#DFA528] shrink-0 mt-0.5" />
-                    <span>To promote compassion towards animal welfare</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-[#DFA528] shrink-0 mt-0.5" />
-                    <span>To encourage rural development and youth sports</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Right Image: image004.webp */}
-              <div className="lg:col-span-5 relative h-64 sm:h-80 lg:h-[350px] w-full rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+              {/* Image: image004.webp (Top on mobile) */}
+              <div className="w-full lg:col-span-5 relative h-64 sm:h-80 lg:h-[350px] rounded-xl overflow-hidden border border-gray-200 shadow-sm">
                 <Image
                   src="/images/image004.webp"
                   alt="Our Mission Initiative"
@@ -150,17 +121,42 @@ export default function AboutUsPage() {
                 />
               </div>
 
+              {/* Text Content: Our Mission */}
+              <div className="w-full lg:col-span-7 space-y-5">
+                <div className="space-y-2">
+                  <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#356877]">
+                    Our Mission
+                  </h2>
+                  <div className="h-0.5 w-14 bg-[#DFA528]" />
+                </div>
+
+                <ul className="space-y-3.5 text-sm sm:text-base text-gray-700">
+                  <li className="flex items-start gap-3">
+                    <ArrowRightCircle className="h-5 w-5 text-[#DFA528] shrink-0 mt-0.5" />
+                    <span>To deliver meaningful, grassroots-level impact in areas of human and social development</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <ArrowRightCircle className="h-5 w-5 text-[#DFA528] shrink-0 mt-0.5" />
+                    <span>To support children, families, and communities with integrity and empathy</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <ArrowRightCircle className="h-5 w-5 text-[#DFA528] shrink-0 mt-0.5" />
+                    <span>To create long-term, sustainable change rather than short-term relief</span>
+                  </li>
+                </ul>
+              </div>
+
             </div>
           </SectionReveal>
         </div>
       </section>
 
-      {/* 5. Green Banner 3: Mid-page Philosophy Callout (sector.webp background) */}
-      <section className="relative w-full min-h-[240px] sm:min-h-[280px] flex items-center justify-center text-white overflow-hidden py-8 sm:py-12">
+      {/* 5. Green Banner 3: A Philosophy That Guides Every Action (matching Screenshot 2 Top) */}
+      <section className="relative w-full min-h-[240px] sm:min-h-[280px] flex items-center justify-center text-white overflow-hidden py-10 sm:py-14">
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/sector.webp"
-            alt="Mid-page Callout Background"
+            alt="A Philosophy That Guides Every Action Background"
             fill
             quality={100}
             className="object-cover object-center"
@@ -170,22 +166,22 @@ export default function AboutUsPage() {
 
         <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-3">
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-wide drop-shadow-md">
-            Quiet, Consistent, and Compassionate Action
+            A Philosophy That Guides Every Action
           </h2>
-          <p className="text-sm sm:text-base text-white/95 leading-relaxed max-w-2xl mx-auto px-2">
-            Every initiative is designed to create long-term impact with dignity and transparency.
+          <p className="text-sm sm:text-base lg:text-lg text-white/95 leading-relaxed font-normal max-w-2xl mx-auto px-2">
+            Compassion in practice. Integrity in action. Service for life.
           </p>
         </div>
       </section>
 
-      {/* 6. Founder Profile Section (blurry.webp matching SS 3) */}
+      {/* 6. Dr. Krishnakumar Chothani Section (matching Screenshot 2 Bottom & Screenshot 3) */}
       <section className="w-full bg-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionReveal className="rounded-2xl bg-white p-6 sm:p-10 border border-gray-100 shadow-lg">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
               
-              {/* Left Image: blurry.webp */}
-              <div className="lg:col-span-5 relative h-72 sm:h-96 lg:h-[380px] w-full rounded-xl overflow-hidden border border-gray-200 shadow-sm bg-white">
+              {/* Image: blurry.webp (Top on mobile) */}
+              <div className="w-full lg:col-span-5 relative h-72 sm:h-96 lg:h-[400px] rounded-xl overflow-hidden border border-gray-200 shadow-sm bg-white">
                 <Image
                   src="/images/blurry.webp"
                   alt="Dr. Krishnakumar Chothani Portrait"
@@ -195,28 +191,54 @@ export default function AboutUsPage() {
                 />
               </div>
 
-              {/* Right Content: Founder Profile */}
-              <div className="lg:col-span-7 space-y-5">
+              {/* Content: Founder Profile matching SS 2 & 3 */}
+              <div className="w-full lg:col-span-7 space-y-5">
                 <div className="space-y-1">
                   <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#356877]">
                     Dr. Krishnakumar Chothani
                   </h2>
-                  <h3 className="text-sm font-bold text-[#DFA528] uppercase tracking-wide">
-                    Founder & Chairperson, Chothani Foundation
+                  <h3 className="text-sm font-bold text-slate-800 tracking-wide">
+                    Founder Chairperson
                   </h3>
                   <div className="h-0.5 w-14 bg-[#DFA528] mt-1" />
                 </div>
 
-                <p className="text-sm sm:text-base text-slate-800 font-semibold italic">
-                  &ldquo;Healthcare and education are not privileges—they are fundamental rights that belong to every child.&rdquo;
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-normal">
+                  Dr. Krishnakumar Chothani is not defined by titles or accolades, but by five decades of quiet, consistent service.
                 </p>
+
+                <div className="space-y-3 pt-1">
+                  <p className="text-sm sm:text-base font-semibold text-slate-900">
+                    As a paediatrician in rural India, he has:
+                  </p>
+                  <ul className="space-y-2.5 text-sm sm:text-base text-gray-700">
+                    <li className="flex items-start gap-2.5">
+                      <Heart className="h-4.5 w-4.5 text-[#DFA528] fill-[#DFA528] shrink-0 mt-0.5" />
+                      <span>Treated generations of children</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <Heart className="h-4.5 w-4.5 text-[#DFA528] fill-[#DFA528] shrink-0 mt-0.5" />
+                      <span>Served families across socio-economic boundaries</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <Heart className="h-4.5 w-4.5 text-[#DFA528] fill-[#DFA528] shrink-0 mt-0.5" />
+                      <span>Practised medicine with empathy, patience, and moral conviction</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="border-l-4 border-[#356877] pl-4 py-1 bg-slate-50 rounded-r-md">
+                  <p className="font-serif text-sm sm:text-base font-semibold text-slate-900 italic">
+                    &ldquo;Healing is not only about medicine&mdash;it is about trust, care, and presence.&rdquo;
+                  </p>
+                </div>
 
                 <div className="space-y-3 text-sm sm:text-base text-gray-700 leading-relaxed font-normal">
                   <p>
-                    Dr. Krishnakumar Chothani has spent over five decades serving rural communities with medical expertise and compassionate leadership. His career is characterized by an unwavering dedication to child healthcare, community welfare, and uplifting vulnerable families.
+                    His work has always extended beyond clinical practice&mdash;touching education, community welfare, ethical living, and social responsibility.
                   </p>
                   <p>
-                    The Foundation stands as an expression of his values—built to institutionalise care and extend opportunity to generations to come.
+                    Chothani Foundation reflects his philosophy: <strong className="text-slate-900 font-semibold">serve without discrimination, give without expectation, and work without ego.</strong>
                   </p>
                 </div>
               </div>
@@ -226,13 +248,24 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* 7. Family & Governance (Dark #212529 section with family.webp matching SS 4) */}
+      {/* 7. Family & Governance (Dark #212529 section with family.webp matching SS 3 Bottom) */}
       <section className="w-full bg-[#212529] py-14 sm:py-18 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6 text-white">
+            {/* Image: family.webp (TOP on mobile) */}
+            <div className="w-full lg:col-span-5 relative h-72 sm:h-96 lg:h-[380px] rounded-xl overflow-hidden bg-white shadow-xl p-2">
+              <Image
+                src="/images/family.webp"
+                alt="Chothani Family Group Photo"
+                fill
+                quality={100}
+                className="object-contain p-2"
+              />
+            </div>
+
+            {/* Content */}
+            <div className="w-full lg:col-span-7 space-y-5 text-white">
               <div className="space-y-1">
                 <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#DFA528]">
                   Family & Governance
@@ -268,66 +301,11 @@ export default function AboutUsPage() {
               </div>
             </div>
 
-            {/* Right Image: family.webp */}
-            <div className="lg:col-span-5 relative h-72 sm:h-96 lg:h-[380px] w-full rounded-xl overflow-hidden bg-white shadow-xl p-2">
-              <Image
-                src="/images/family.webp"
-                alt="Chothani Family Group Photo"
-                fill
-                quality={100}
-                className="object-contain p-2"
-              />
-            </div>
-
           </div>
         </div>
       </section>
 
-      {/* 8. Service as a Way of Life (education.webp matching SS 5) */}
-      <section className="w-full bg-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionReveal className="rounded-2xl bg-white p-6 sm:p-10 border border-gray-100 shadow-lg">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-              
-              {/* Left Image: education.webp */}
-              <div className="lg:col-span-5 relative h-64 sm:h-80 lg:h-[350px] w-full rounded-xl overflow-hidden border border-gray-200 shadow-sm">
-                <Image
-                  src="/images/education.webp"
-                  alt="Service as a Way of Life"
-                  fill
-                  quality={100}
-                  className="object-cover object-center"
-                />
-              </div>
-
-              {/* Right Content: Service as a Way of Life */}
-              <div className="lg:col-span-7 space-y-5">
-                <div className="space-y-2">
-                  <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#356877]">
-                    Service as a Way of Life
-                  </h2>
-                  <div className="h-0.5 w-14 bg-[#DFA528]" />
-                  <h3 className="text-base sm:text-lg font-bold text-slate-800 pt-1">
-                    Building a Circle of Compassion
-                  </h3>
-                </div>
-
-                <div className="space-y-4 text-sm sm:text-base text-gray-700 leading-relaxed font-normal">
-                  <p>
-                    At Chothani Foundation, we believe that true service is not a singular act, but a continuous way of life. By supporting scholarships, healthcare outreach, and rural upliftment, we invite others to join a growing circle of impact.
-                  </p>
-                  <p>
-                    Together, we work to build communities grounded in opportunity, dignity, and care for all living beings.
-                  </p>
-                </div>
-              </div>
-
-            </div>
-          </SectionReveal>
-        </div>
-      </section>
-
-      {/* 9. Green Banner 4: Closing CTA (education.webp background) */}
+      {/* 8. Closing CTA Banner (education.webp background) */}
       <section className="relative w-full min-h-[260px] sm:min-h-[300px] flex items-center justify-center text-white overflow-hidden py-10 sm:py-14">
         <div className="absolute inset-0 z-0">
           <Image
