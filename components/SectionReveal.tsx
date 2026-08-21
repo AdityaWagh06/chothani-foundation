@@ -18,25 +18,25 @@ export default function SectionReveal({
   delay = 0,
   direction = "up",
   duration = 0.75,
-  blur = true,
+  blur = false,
 }: SectionRevealProps) {
   const getInitial = () => {
     const blurStyle = blur ? "blur(6px)" : "blur(0px)";
     switch (direction) {
       case "up":
-        return { opacity: 0, y: 35, filter: blurStyle };
+        return { opacity: 0, y: 40, filter: blurStyle };
       case "down":
-        return { opacity: 0, y: -35, filter: blurStyle };
+        return { opacity: 0, y: -40, filter: blurStyle };
       case "left":
-        return { opacity: 0, x: -45, filter: blurStyle };
+        return { opacity: 0, x: -40, filter: blurStyle };
       case "right":
-        return { opacity: 0, x: 45, filter: blurStyle };
+        return { opacity: 0, x: 40, filter: blurStyle };
       case "zoom":
-        return { opacity: 0, scale: 0.94, filter: blurStyle };
+        return { opacity: 0, scale: 0.95, filter: blurStyle };
       case "none":
         return { opacity: 0, filter: blurStyle };
       default:
-        return { opacity: 0, y: 35, filter: blurStyle };
+        return { opacity: 0, y: 40, filter: blurStyle };
     }
   };
 
@@ -53,11 +53,11 @@ export default function SectionReveal({
     <motion.div
       initial={getInitial()}
       whileInView={getFinal()}
-      viewport={{ once: true, amount: 0.15 }}
+      viewport={{ once: true, amount: 0.05, margin: "0px 0px -10px 0px" }}
       transition={{
         duration,
         delay,
-        ease: [0.16, 1, 0.3, 1], // Ultra-smooth Apple-grade cubic-bezier
+        ease: [0.16, 1, 0.3, 1],
       }}
       className={className}
     >
