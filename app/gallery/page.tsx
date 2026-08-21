@@ -5,12 +5,12 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionReveal from "@/components/SectionReveal";
 import { useDonation } from "@/context/DonationContext";
-import { X, ZoomIn, HeartHandshake, Filter } from "lucide-react";
+import { X, ZoomIn, HeartHandshake } from "lucide-react";
 
 interface GalleryItem {
   id: string;
   title: string;
-  category: "healthcare" | "education" | "community" | "legacy";
+  category: "healthcare" | "education" | "community";
   image: string;
   caption: string;
 }
@@ -20,90 +20,112 @@ export default function GalleryPage() {
   const [activeTab, setActiveTab] = useState<string>("all");
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
 
+  // Pure action & field images only (NO logo backdrop images)
   const galleryItems: GalleryItem[] = [
     {
       id: "1",
       title: "Rural Paediatric Health Camp",
       category: "healthcare",
       image: "/images/photo-1.jpg",
-      caption: "Providing free pediatric checkups and medicines to children in rural Shrirampur.",
+      caption: "Free pediatric checkups, diagnosis, and treatment for children in remote rural hamlets.",
     },
     {
       id: "2",
-      title: "Child Healthcare & Wellness",
+      title: "Child Health & Wellness Check",
       category: "healthcare",
       image: "/images/photo-2.jpg",
-      caption: "Monitoring growth, nutrition, and early wellness intervention for infants.",
+      caption: "Monitoring growth, nutrition, and early wellness intervention for infants and mothers.",
     },
     {
       id: "3",
       title: "Village Health Consultation",
       category: "healthcare",
       image: "/images/photo-3.jpg",
-      caption: "Dr. Chothani consulting with local mothers and families in underserved hamlets.",
+      caption: "Community healthcare outreach and preventive care guidance for rural families.",
     },
     {
       id: "4",
-      title: "Educational Scholarship Distribution",
-      category: "education",
-      image: "/images/photo-4.jpg",
-      caption: "Empowering meritorious rural students with academic scholarships.",
+      title: "Community Medical Outreach",
+      category: "healthcare",
+      image: "/images/healthcare.webp",
+      caption: "Organizing medical assistance and health camps in underserved rural regions.",
     },
     {
       id: "5",
-      title: "Classroom Support & Learning Kits",
-      category: "education",
-      image: "/images/image004.webp",
-      caption: "Distributing slates, books, and educational supplies to village schoolchildren.",
+      title: "50 Years of Healthcare Service",
+      category: "healthcare",
+      image: "/images/image003.webp",
+      caption: "A legacy of selfless medical care and empathy for children and families.",
     },
     {
       id: "6",
-      title: "Rural Agricultural & Field Development",
-      category: "community",
-      image: "/images/image001.webp",
-      caption: "Supporting sustainable farming, irrigation, and community self-reliance.",
+      title: "Educational Scholarship Distribution",
+      category: "education",
+      image: "/images/photo-4.jpg",
+      caption: "Awarding academic scholarships to deserving students from rural backgrounds.",
     },
     {
       id: "7",
-      title: "Youth Sports Equipment Support",
-      category: "community",
-      image: "/images/sports.webp",
-      caption: "Encouraging sports, physical discipline, and teamwork among rural youth.",
+      title: "Classroom Learning & Supplies",
+      category: "education",
+      image: "/images/photo-5.jpg",
+      caption: "Providing essential learning supplies, books, and slates to village primary schools.",
     },
     {
       id: "8",
-      title: "Animal Welfare & Care Camps",
-      category: "community",
-      image: "/images/animals.webp",
-      caption: "Providing medical treatment and humane protection for farm & stray animals.",
+      title: "Student Support & Empowerment",
+      category: "education",
+      image: "/images/image004.webp",
+      caption: "Supporting children with educational tools to foster curiosity and excellence.",
     },
     {
       id: "9",
-      title: "50 Years of Healthcare Legacy",
-      category: "legacy",
-      image: "/images/image003.webp",
-      caption: "Honouring five decades of dedicated, selfless medical service.",
+      title: "Youth Literacy & Skill Building",
+      category: "education",
+      image: "/images/education1.webp",
+      caption: "Empowering rural youth through foundation education and career guidance.",
     },
     {
       id: "10",
-      title: "Dr. Krishnakumar Chothani",
-      category: "legacy",
-      image: "/images/blurry.webp",
-      caption: "Founder Chairperson and pioneer of rural child healthcare.",
+      title: "Animal Welfare & Veterinary Care",
+      category: "community",
+      image: "/images/photo-6.jpg",
+      caption: "Providing medical treatment and humane care for injured farm and domestic animals.",
     },
     {
       id: "11",
-      title: "Chothani Family Trustees",
-      category: "legacy",
-      image: "/images/family.webp",
-      caption: "Guiding the Foundation with responsibility, transparency, and unity.",
+      title: "Humane Care & Animal Protection",
+      category: "community",
+      image: "/images/animals.webp",
+      caption: "Supporting rural animal shelters, fodder distribution, and emergency veterinary care.",
     },
     {
       id: "12",
-      title: "Community Outreach & Care",
+      title: "Community Livelihood Program",
       category: "community",
-      image: "/images/make-a-change.webp",
-      caption: "Building a circle of compassion and grassroots-level social change.",
+      image: "/images/photo-7.jpg",
+      caption: "Promoting self-reliance, village infrastructure, and rural economic dignity.",
+    },
+    {
+      id: "13",
+      title: "Agricultural & Rural Upliftment",
+      category: "community",
+      image: "/images/image001.webp",
+      caption: "Supporting sustainable farming, irrigation, and community development.",
+    },
+    {
+      id: "14",
+      title: "Rural Infrastructure & Sanitation",
+      category: "community",
+      image: "/images/rural.webp",
+      caption: "Improving clean drinking water access and village living conditions.",
+    },
+    {
+      id: "15",
+      title: "Youth Sports Equipment Support",
+      category: "community",
+      image: "/images/sports.webp",
+      caption: "Equipping rural youth with athletic gear to promote teamwork and physical health.",
     },
   ];
 
@@ -129,7 +151,7 @@ export default function GalleryPage() {
             transition={{ duration: 0.6 }}
             className="inline-flex items-center gap-2 rounded-full bg-[#DFA528]/20 border border-[#DFA528]/40 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-[#DFA528] backdrop-blur-md"
           >
-            Visual Journey
+            Field Action & Initiatives
           </motion.div>
 
           <motion.h1
@@ -147,7 +169,7 @@ export default function GalleryPage() {
             transition={{ duration: 0.75, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-base sm:text-lg text-gray-200 font-medium tracking-wide max-w-2xl mx-auto drop-shadow-sm"
           >
-            Documenting 50 years of paediatric care, scholarship distribution, and grassroots community upliftment.
+            Real field photography documenting healthcare outreach, scholarship distribution, animal welfare, and rural development.
           </motion.p>
         </div>
       </section>
@@ -159,11 +181,10 @@ export default function GalleryPage() {
           {/* Tabs Navigation */}
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
             {[
-              { id: "all", label: "All Photos" },
+              { id: "all", label: "All Field Photos" },
               { id: "healthcare", label: "Healthcare Outreach" },
               { id: "education", label: "Education & Youth" },
               { id: "community", label: "Community & Rural" },
-              { id: "legacy", label: "Family & Legacy" },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -179,7 +200,7 @@ export default function GalleryPage() {
             ))}
           </div>
 
-          {/* Gallery Masonry Grid */}
+          {/* Gallery Grid */}
           <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             <AnimatePresence>
               {filteredItems.map((item) => (

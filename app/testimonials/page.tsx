@@ -9,9 +9,10 @@ import {
   Quote,
   Star,
   HeartHandshake,
-  MessageSquare,
   CheckCircle2,
   Send,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
 interface Testimonial {
@@ -190,9 +191,9 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      {/* 3. TESTIMONIALS GRID */}
+      {/* 3. TESTIMONIALS (Horizontal Swipe Carousel on Mobile, Grid on Tablet/Desktop) */}
       <section className="w-full py-12 sm:py-16 bg-[#F8FAFC]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
           
           <SectionReveal className="text-center space-y-2 max-w-2xl mx-auto">
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#356877]">
@@ -202,18 +203,22 @@ export default function TestimonialsPage() {
             <p className="text-sm sm:text-base text-slate-600">
               Hear directly from the people whose lives have been touched by Chothani Foundation.
             </p>
+            <p className="text-xs text-[#DFA528] font-semibold md:hidden flex items-center justify-center gap-1 pt-1">
+              <span>Swipe left to read more</span> &rarr;
+            </p>
           </SectionReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {/* Horizontal Scroll Carousel on Mobile / Multi-column Grid on Desktop */}
+          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory pb-6 md:pb-0 scrollbar-none -mx-4 px-4 md:mx-0 md:px-0">
             {testimonials.map((item, index) => (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, y: 35 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -6 }}
-                className="h-full rounded-2xl bg-white p-6 sm:p-8 border border-slate-100 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-6 group"
+                className="min-w-[84vw] sm:min-w-[340px] md:min-w-0 snap-center rounded-2xl bg-white p-6 sm:p-8 border border-slate-100 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-6 group shrink-0 md:shrink"
               >
                 <div className="space-y-4">
                   {/* Rating Stars & Category */}
