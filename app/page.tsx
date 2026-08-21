@@ -237,28 +237,25 @@ export default function HomePage() {
               return (
                 <motion.div
                   key={area.id}
-                  initial={{ opacity: 0, y: 35, filter: "blur(5px)" }}
+                  initial={{ opacity: 0, y: 30, filter: "blur(5px)" }}
                   whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  viewport={{ once: true, amount: 0.2 }}
+                  viewport={{ once: true, amount: 0.15 }}
                   transition={{
                     duration: 0.65,
-                    delay: index * 0.12,
+                    delay: index * 0.1,
                     ease: [0.16, 1, 0.3, 1],
                   }}
                   whileHover={{ y: -6, scale: 1.02 }}
-                  className="h-full rounded-xl bg-white p-6 sm:p-8 border border-gray-100 shadow-md hover:shadow-2xl transition-all duration-300 text-center space-y-3 flex flex-col items-center justify-start group cursor-pointer"
+                  className="h-full rounded-2xl bg-white p-6 sm:p-8 border border-gray-100/90 shadow-lg shadow-gray-200/60 hover:shadow-2xl hover:shadow-gray-300/70 transition-all duration-300 text-center space-y-3.5 flex flex-col items-center justify-start group cursor-pointer"
                 >
-                  <motion.div
-                    whileHover={{ rotate: 10, scale: 1.18 }}
-                    transition={{ type: "spring", stiffness: 350, damping: 18 }}
-                    className="flex h-14 w-14 items-center justify-center text-[#DFA528]"
-                  >
-                    <IconComponent className="h-10 w-10" />
-                  </motion.div>
-                  <h3 className="font-serif text-lg font-bold text-[#356877] group-hover:text-[#DFA528] transition-colors">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#DFA528]/10 text-[#DFA528] group-hover:bg-[#DFA528] group-hover:text-slate-900 transition-all duration-300 shadow-xs">
+                    <IconComponent className="h-8 w-8" />
+                  </div>
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#356877] group-hover:text-[#DFA528] transition-colors">
                     {area.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                  <div className="h-0.5 w-10 bg-[#DFA528] rounded-full transition-all duration-300 group-hover:w-16" />
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal">
                     {area.desc}
                   </p>
                 </motion.div>
@@ -273,28 +270,25 @@ export default function HomePage() {
               return (
                 <motion.div
                   key={area.id}
-                  initial={{ opacity: 0, y: 35, filter: "blur(5px)" }}
+                  initial={{ opacity: 0, y: 30, filter: "blur(5px)" }}
                   whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  viewport={{ once: true, amount: 0.2 }}
+                  viewport={{ once: true, amount: 0.15 }}
                   transition={{
                     duration: 0.65,
-                    delay: (index + 3) * 0.12,
+                    delay: (index + 3) * 0.1,
                     ease: [0.16, 1, 0.3, 1],
                   }}
                   whileHover={{ y: -6, scale: 1.02 }}
-                  className="h-full rounded-xl bg-white p-6 sm:p-8 border border-gray-100 shadow-md hover:shadow-2xl transition-all duration-300 text-center space-y-3 flex flex-col items-center justify-start group cursor-pointer"
+                  className="h-full rounded-2xl bg-white p-6 sm:p-8 border border-gray-100/90 shadow-lg shadow-gray-200/60 hover:shadow-2xl hover:shadow-gray-300/70 transition-all duration-300 text-center space-y-3.5 flex flex-col items-center justify-start group cursor-pointer"
                 >
-                  <motion.div
-                    whileHover={{ rotate: 10, scale: 1.18 }}
-                    transition={{ type: "spring", stiffness: 350, damping: 18 }}
-                    className="flex h-14 w-14 items-center justify-center text-[#DFA528]"
-                  >
-                    <IconComponent className="h-10 w-10" />
-                  </motion.div>
-                  <h3 className="font-serif text-lg font-bold text-[#356877] group-hover:text-[#DFA528] transition-colors">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#DFA528]/10 text-[#DFA528] group-hover:bg-[#DFA528] group-hover:text-slate-900 transition-all duration-300 shadow-xs">
+                    <IconComponent className="h-8 w-8" />
+                  </div>
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#356877] group-hover:text-[#DFA528] transition-colors">
                     {area.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                  <div className="h-0.5 w-10 bg-[#DFA528] rounded-full transition-all duration-300 group-hover:w-16" />
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal">
                     {area.desc}
                   </p>
                 </motion.div>
