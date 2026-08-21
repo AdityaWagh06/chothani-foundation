@@ -20,6 +20,7 @@ export default function GalleryPage() {
   const [activeTab, setActiveTab] = useState<string>("all");
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [mobileIndex, setMobileIndex] = useState(0);
 
   // Pure action & field images only (10 high-quality photos)
   const galleryItems: GalleryItem[] = [
@@ -110,14 +111,22 @@ export default function GalleryPage() {
     setCurrentIndex((prev) => (prev < maxIndex ? prev + 1 : 0));
   };
 
+  const prevMobileSlide = () => {
+    setMobileIndex((prev) => (prev > 0 ? prev - 1 : filteredItems.length - 1));
+  };
+
+  const nextMobileSlide = () => {
+    setMobileIndex((prev) => (prev < filteredItems.length - 1 ? prev + 1 : 0));
+  };
+
   const handleTabChange = (tabId: string) => {
     setActiveTab(tabId);
     setCurrentIndex(0);
+    setMobileIndex(0);
   };
 
-  // Slice visible items (3 items at a time)
+  // Slice visible items for desktop (3 items at a time)
   const visibleItems = filteredItems.slice(currentIndex, currentIndex + 3);
-  // Fallback if less than 3 items
   const displayItems =
     visibleItems.length < 3 && filteredItems.length >= 3
       ? filteredItems.slice(-3)
@@ -163,8 +172,8 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* 2. GALLERY CONTROLS & 3-CARD HORIZONTAL SLIDER */}
-      <section className="w-full py-14 sm:py-20 bg-white">
+      {/* 2. GALLERY CONTROLS & DUAL SLIDER (3-Card Desktop / 1-Card Mobile Hero) */}
+      <section className="w-full py-12 sm:py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-10">
           
           {/* Tabs Navigation */}
@@ -189,8 +198,8 @@ export default function GalleryPage() {
             ))}
           </div>
 
-          {/* Interactive Horizontal Slider with Left & Right Arrows (3 Cards visible) */}
-          <div className="relative max-w-7xl mx-auto px-2 sm:px-12">
+          {/* DESKTOP VIEW (>= md): 3-Card Grid Slider */}
+          <div className="hidden md:block relative max-w-7xl mx-auto px-12">
             
             {/* Left Arrow Button */}
             {filteredItems.length > 3 && (
@@ -223,7 +232,7 @@ export default function GalleryPage() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -40 }}
                   transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
+                  className="grid grid-cols-3 gap-6 lg:gap-8"
                 >
                   {displayItems.map((item) => (
                     <motion.div
@@ -269,15 +278,91 @@ export default function GalleryPage() {
               </AnimatePresence>
             </div>
 
-            {/* Slider Counter Indicator */}
+            {/* Desktop Counter Indicator */}
             {filteredItems.length > 3 && (
-              <div className="flex items-center justify-center gap-2 pt-6">
+              <div className="flex items-center justify-center gap-2 pt-4">
                 <span className="text-xs font-semibold text-[#356877]">
                   Showing {currentIndex + 1} - {Math.min(currentIndex + 3, filteredItems.length)} of {filteredItems.length} photos
                 </span>
               </div>
             )}
+          </div>
 
+          {/* MOBILE VIEW (< md): Single-Card Hero Slider with Touch & Floating Overlay Arrows */}
+          <div className="block md:hidden relative max-w-md mx-auto px-2">
+            <div className="relative overflow-hidden py-2">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={mobileIndex}
+                  initial={{ opacity: 0, x: 45, scale: 0.96 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  exit={{ opacity: 0, x: -45, scale: 0.96 }}
+                  transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                  onClick={() => setSelectedImage(filteredItems[mobileIndex])}
+                  className="group relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-100 shadow-xl cursor-pointer h-96 w-full"
+                >
+                  <Image
+                    src={filteredItems[mobileIndex]?.image || ""}
+                    alt={filteredItems[mobileIndex]?.title || ""}
+                    fill
+                    quality={100}
+                    className="object-cover object-center"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/30 to-transparent opacity-90" />
+                  
+                  {/* Floating Action Overlay & Captions */}
+                  <div className="absolute inset-0 p-5 flex flex-col justify-between z-10 text-white">
+                    <div className="flex justify-between items-center">
+                      <span className="inline-block rounded-md bg-[#DFA528] px-2.5 py-1 text-[10px] font-bold text-slate-900 uppercase tracking-widest">
+                        {filteredItems[mobileIndex]?.category}
+                      </span>
+                      <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/25 backdrop-blur-md text-white">
+                        <ZoomIn className="h-4.5 w-4.5" />
+                      </span>
+                    </div>
+
+                    <div className="space-y-1.5 pt-4">
+                      <h3 className="font-serif text-xl font-bold text-white leading-snug drop-shadow-md">
+                        {filteredItems[mobileIndex]?.title}
+                      </h3>
+                      <p className="text-xs text-gray-200 leading-relaxed font-normal">
+                        {filteredItems[mobileIndex]?.caption}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Mobile Floating Left/Right Overlay Arrows */}
+              <button
+                onClick={prevMobileSlide}
+                aria-label="Previous Photo"
+                className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-slate-950/80 backdrop-blur-md border border-white/30 text-white shadow-xl"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+
+              <button
+                onClick={nextMobileSlide}
+                aria-label="Next Photo"
+                className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-slate-950/80 backdrop-blur-md border border-white/30 text-white shadow-xl"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </button>
+            </div>
+
+            {/* Mobile Dots Indicator */}
+            <div className="flex items-center justify-center gap-1.5 pt-4">
+              {filteredItems.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setMobileIndex(idx)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    mobileIndex === idx ? "w-6 bg-[#356877]" : "w-2 bg-slate-300"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
 
         </div>
