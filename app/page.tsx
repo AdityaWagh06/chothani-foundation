@@ -232,18 +232,17 @@ export default function HomePage() {
 
           {/* Row 1 (3 Cards) */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-            {focusAreasRow1.map((area, index) => {
+            {focusAreasRow1.map((area) => {
               const IconComponent = area.icon;
               return (
                 <motion.div
                   key={area.id}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -45 : 45 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.05, margin: "0px 0px -20px 0px" }}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "0px 0px -20px 0px" }}
                   transition={{
-                    duration: 0.45,
-                    delay: (index % 3) * 0.08,
-                    ease: [0.25, 1, 0.5, 1],
+                    duration: 0.35,
+                    ease: "easeOut",
                   }}
                   whileHover={{ y: -6, scale: 1.02 }}
                   className="h-full rounded-2xl bg-white p-6 sm:p-8 border border-gray-100/90 shadow-lg shadow-gray-200/60 hover:shadow-2xl hover:shadow-gray-300/70 transition-all duration-300 text-center space-y-3.5 flex flex-col items-center justify-start group cursor-pointer"
@@ -265,18 +264,17 @@ export default function HomePage() {
 
           {/* Row 2 (2 Cards Centered) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {focusAreasRow2.map((area, index) => {
+            {focusAreasRow2.map((area) => {
               const IconComponent = area.icon;
               return (
                 <motion.div
                   key={area.id}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -45 : 45 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.05, margin: "0px 0px -20px 0px" }}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "0px 0px -20px 0px" }}
                   transition={{
-                    duration: 0.45,
-                    delay: (index % 2) * 0.08 + 0.05,
-                    ease: [0.25, 1, 0.5, 1],
+                    duration: 0.35,
+                    ease: "easeOut",
                   }}
                   whileHover={{ y: -6, scale: 1.02 }}
                   className="h-full rounded-2xl bg-white p-6 sm:p-8 border border-gray-100/90 shadow-lg shadow-gray-200/60 hover:shadow-2xl hover:shadow-gray-300/70 transition-all duration-300 text-center space-y-3.5 flex flex-col items-center justify-start group cursor-pointer"
