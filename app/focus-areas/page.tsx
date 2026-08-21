@@ -29,14 +29,14 @@ export default function FocusAreasPage() {
         </div>
       </section>
 
-      {/* 2. Section 1: Education (Image left education1.webp, text right) */}
-      <section className="w-full bg-white py-10 sm:py-14">
+      {/* 2. Section 1: Education (Pure White Row - Image left education1.webp, text right) */}
+      <section className="w-full bg-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionReveal>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <SectionReveal className="rounded-2xl bg-white p-6 sm:p-10 border border-gray-100 shadow-md hover:shadow-xl transition-shadow">
+            <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
               {/* Left Image: education1.webp */}
-              <div className="lg:col-span-5 relative h-56 sm:h-72 lg:h-[270px] w-full overflow-hidden rounded-md shadow-sm border border-gray-100">
+              <div className="w-full lg:col-span-5 relative h-56 sm:h-72 lg:h-[280px] overflow-hidden rounded-xl shadow-sm border border-gray-100">
                 <Image
                   src="/images/education1.webp"
                   alt="Education Initiative - Scholarships & Student Support"
@@ -48,7 +48,7 @@ export default function FocusAreasPage() {
               </div>
 
               {/* Right Content: Education */}
-              <div className="lg:col-span-7 space-y-4">
+              <div className="w-full lg:col-span-7 space-y-4">
                 <div className="space-y-1.5">
                   <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#356877]">
                     Education
@@ -80,14 +80,25 @@ export default function FocusAreasPage() {
         </div>
       </section>
 
-      {/* 3. Section 2: Healthcare (Text left, Image right healthcare.webp) */}
-      <section className="w-full bg-white py-10 sm:py-14">
+      {/* 3. Section 2: Healthcare (Slight Shade Darker #F8FAFC Row) */}
+      <section className="w-full bg-[#F8FAFC] py-12 sm:py-16 border-y border-gray-100/80">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionReveal>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <SectionReveal className="rounded-2xl bg-white p-6 sm:p-10 border border-gray-100 shadow-md hover:shadow-xl transition-shadow">
+            <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
-              {/* Left Content: Healthcare */}
-              <div className="lg:col-span-7 space-y-4">
+              {/* Right Image on PC, Top on Mobile: healthcare.webp */}
+              <div className="w-full lg:col-span-5 lg:order-2 relative h-56 sm:h-72 lg:h-[280px] overflow-hidden rounded-xl shadow-sm border border-gray-100">
+                <Image
+                  src="/images/healthcare.webp"
+                  alt="Healthcare Camps & Community Assistance"
+                  fill
+                  quality={100}
+                  className="object-cover object-center"
+                />
+              </div>
+
+              {/* Left Content on PC, Below on Mobile: Healthcare */}
+              <div className="w-full lg:col-span-7 lg:order-1 space-y-4">
                 <div className="space-y-1.5">
                   <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#356877]">
                     Healthcare
@@ -114,30 +125,19 @@ export default function FocusAreasPage() {
                 </ul>
               </div>
 
-              {/* Right Image: healthcare.webp */}
-              <div className="lg:col-span-5 relative h-56 sm:h-72 lg:h-[270px] w-full overflow-hidden rounded-md shadow-sm border border-gray-100">
-                <Image
-                  src="/images/healthcare.webp"
-                  alt="Healthcare Camps & Community Assistance"
-                  fill
-                  quality={100}
-                  className="object-cover object-center"
-                />
-              </div>
-
             </div>
           </SectionReveal>
         </div>
       </section>
 
-      {/* 4. Section 3: Animal Welfare (Image left animals.webp, text right) */}
-      <section className="w-full bg-white py-10 sm:py-14">
+      {/* 4. Section 3: Animal Welfare (Pure White Row) */}
+      <section className="w-full bg-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionReveal>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <SectionReveal className="rounded-2xl bg-white p-6 sm:p-10 border border-gray-100 shadow-md hover:shadow-xl transition-shadow">
+            <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
               {/* Left Image: animals.webp */}
-              <div className="lg:col-span-5 relative h-56 sm:h-72 lg:h-[270px] w-full overflow-hidden rounded-md shadow-sm border border-gray-100">
+              <div className="w-full lg:col-span-5 relative h-56 sm:h-72 lg:h-[280px] overflow-hidden rounded-xl shadow-sm border border-gray-100">
                 <Image
                   src="/images/animals.webp"
                   alt="Animal Welfare & Care Initiatives"
@@ -148,7 +148,7 @@ export default function FocusAreasPage() {
               </div>
 
               {/* Right Content: Animal Welfare */}
-              <div className="lg:col-span-7 space-y-4">
+              <div className="w-full lg:col-span-7 space-y-4">
                 <div className="space-y-1.5">
                   <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#356877]">
                     Animal Welfare
@@ -180,14 +180,25 @@ export default function FocusAreasPage() {
         </div>
       </section>
 
-      {/* 5. Section 4: Rural Development (Text left, Image right rural.webp) */}
-      <section className="w-full bg-white py-10 sm:py-14">
+      {/* 5. Section 4: Rural Development (Slight Shade Darker #F8FAFC Row) */}
+      <section className="w-full bg-[#F8FAFC] py-12 sm:py-16 border-y border-gray-100/80">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionReveal>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <SectionReveal className="rounded-2xl bg-white p-6 sm:p-10 border border-gray-100 shadow-md hover:shadow-xl transition-shadow">
+            <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
-              {/* Left Content: Rural Development */}
-              <div className="lg:col-span-7 space-y-4">
+              {/* Right Image on PC, Top on Mobile: rural.webp */}
+              <div className="w-full lg:col-span-5 lg:order-2 relative h-56 sm:h-72 lg:h-[280px] overflow-hidden rounded-xl shadow-sm border border-gray-100">
+                <Image
+                  src="/images/rural.webp"
+                  alt="Rural Development & Community Upliftment"
+                  fill
+                  quality={100}
+                  className="object-cover object-center"
+                />
+              </div>
+
+              {/* Left Content on PC, Below on Mobile: Rural Development */}
+              <div className="w-full lg:col-span-7 lg:order-1 space-y-4">
                 <div className="space-y-1.5">
                   <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#356877]">
                     Rural Development
@@ -214,30 +225,19 @@ export default function FocusAreasPage() {
                 </ul>
               </div>
 
-              {/* Right Image: rural.webp */}
-              <div className="lg:col-span-5 relative h-56 sm:h-72 lg:h-[270px] w-full overflow-hidden rounded-md shadow-sm border border-gray-100">
-                <Image
-                  src="/images/rural.webp"
-                  alt="Rural Development & Community Upliftment"
-                  fill
-                  quality={100}
-                  className="object-cover object-center"
-                />
-              </div>
-
             </div>
           </SectionReveal>
         </div>
       </section>
 
-      {/* 6. Section 5: Sports Development (Image left sports.webp, text right) */}
-      <section className="w-full bg-white py-10 sm:py-14">
+      {/* 6. Section 5: Sports Development (Pure White Row) */}
+      <section className="w-full bg-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionReveal>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <SectionReveal className="rounded-2xl bg-white p-6 sm:p-10 border border-gray-100 shadow-md hover:shadow-xl transition-shadow">
+            <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
               {/* Left Image: sports.webp */}
-              <div className="lg:col-span-5 relative h-56 sm:h-72 lg:h-[270px] w-full overflow-hidden rounded-md shadow-sm border border-gray-100">
+              <div className="w-full lg:col-span-5 relative h-56 sm:h-72 lg:h-[280px] overflow-hidden rounded-xl shadow-sm border border-gray-100">
                 <Image
                   src="/images/sports.webp"
                   alt="Sports Development & Youth Empowerment"
@@ -248,7 +248,7 @@ export default function FocusAreasPage() {
               </div>
 
               {/* Right Content: Sports Development */}
-              <div className="lg:col-span-7 space-y-4">
+              <div className="w-full lg:col-span-7 space-y-4">
                 <div className="space-y-1.5">
                   <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#356877]">
                     Sports Development
