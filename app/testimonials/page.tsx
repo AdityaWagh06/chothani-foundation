@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import SectionReveal from "@/components/SectionReveal";
 import { useDonation } from "@/context/DonationContext";
 import {
@@ -30,6 +30,8 @@ export default function TestimonialsPage() {
   const { openDonationModal } = useDonation();
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: "", role: "", message: "" });
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const testimonials: Testimonial[] = [
     {
@@ -99,6 +101,23 @@ export default function TestimonialsPage() {
       category: "Animal Welfare",
     },
   ];
+
+  // Auto-play timer for smooth slider
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }, 5500);
+    return () => clearInterval(timer);
+  }, [isPaused, testimonials.length]);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -191,9 +210,9 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      {/* 3. TESTIMONIALS (Horizontal Swipe Carousel on Mobile, Grid on Tablet/Desktop) */}
-      <section className="w-full py-12 sm:py-16 bg-[#F8FAFC]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
+      {/* 3. SMOOTH HORIZONTAL SLIDER (PC & Mobile) */}
+      <section className="w-full py-16 sm:py-24 bg-[#F8FAFC]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-10">
           
           <SectionReveal className="text-center space-y-2 max-w-2xl mx-auto">
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#356877]">
@@ -203,62 +222,105 @@ export default function TestimonialsPage() {
             <p className="text-sm sm:text-base text-slate-600">
               Hear directly from the people whose lives have been touched by Chothani Foundation.
             </p>
-            <p className="text-xs text-[#DFA528] font-semibold md:hidden flex items-center justify-center gap-1 pt-1">
-              <span>Swipe left to read more</span> &rarr;
-            </p>
           </SectionReveal>
 
-          {/* Horizontal Scroll Carousel on Mobile / Multi-column Grid on Desktop */}
-          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory pb-6 md:pb-0 scrollbar-none -mx-4 px-4 md:mx-0 md:px-0">
-            {testimonials.map((item, index) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ y: -6 }}
-                className="min-w-[84vw] sm:min-w-[340px] md:min-w-0 snap-center rounded-2xl bg-white p-6 sm:p-8 border border-slate-100 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-6 group shrink-0 md:shrink"
-              >
-                <div className="space-y-4">
-                  {/* Rating Stars & Category */}
+          {/* Interactive Slider Container */}
+          <div
+            className="relative max-w-5xl mx-auto px-2 sm:px-12"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            
+            {/* Left & Right Arrow Navigation Buttons */}
+            <button
+              onClick={prevSlide}
+              aria-label="Previous Testimonial"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-xl border border-slate-200 text-[#356877] hover:bg-[#356877] hover:text-white transition-all duration-300 transform hover:scale-110"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+
+            <button
+              onClick={nextSlide}
+              aria-label="Next Testimonial"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-xl border border-slate-200 text-[#356877] hover:bg-[#356877] hover:text-white transition-all duration-300 transform hover:scale-110"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+
+            {/* Slider Card Viewport */}
+            <div className="overflow-hidden py-4 px-2">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  initial={{ opacity: 0, x: 50, scale: 0.98 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  exit={{ opacity: 0, x: -50, scale: 0.98 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  className="rounded-3xl bg-white p-8 sm:p-12 border border-slate-100 shadow-xl shadow-slate-200/50 space-y-6 max-w-3xl mx-auto"
+                >
+                  {/* Top Rating & Badge */}
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-1 text-[#DFA528]">
-                      {[...Array(item.rating)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-[#DFA528]" />
+                      {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
+                        <Star key={i} className="h-5 w-5 fill-[#DFA528]" />
                       ))}
                     </div>
-                    <span className="rounded-md bg-slate-100 px-2.5 py-0.5 text-[10px] font-bold text-[#356877] uppercase tracking-wider">
-                      {item.category}
+                    <span className="rounded-full bg-[#356877]/10 px-3 py-1 text-xs font-bold text-[#356877] uppercase tracking-wider">
+                      {testimonials[currentIndex].category}
                     </span>
                   </div>
 
                   {/* Quote */}
-                  <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal italic">
-                    &ldquo;{item.quote}&rdquo;
-                  </p>
-                </div>
+                  <div className="relative">
+                    <Quote className="h-10 w-10 text-[#DFA528]/20 absolute -top-4 -left-2 z-0" />
+                    <p className="relative z-10 font-serif text-lg sm:text-xl lg:text-2xl text-slate-800 leading-relaxed font-normal italic pl-4">
+                      &ldquo;{testimonials[currentIndex].quote}&rdquo;
+                    </p>
+                  </div>
 
-                {/* Author Info */}
-                <div className="flex items-center gap-4 pt-4 border-t border-slate-100">
-                  <div className="relative h-12 w-12 rounded-full overflow-hidden shrink-0 border-2 border-[#DFA528]">
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      fill
-                      className="object-cover object-center"
-                    />
+                  {/* Author Info */}
+                  <div className="flex items-center gap-4 pt-6 border-t border-slate-100">
+                    <div className="relative h-14 w-14 rounded-full overflow-hidden shrink-0 border-2 border-[#DFA528] shadow-md">
+                      <Image
+                        src={testimonials[currentIndex].image}
+                        alt={testimonials[currentIndex].name}
+                        fill
+                        className="object-cover object-center"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="font-serif text-lg font-bold text-[#356877]">
+                        {testimonials[currentIndex].name}
+                      </h3>
+                      <p className="text-xs sm:text-sm font-semibold text-slate-800">
+                        {testimonials[currentIndex].role}
+                      </p>
+                      <p className="text-xs text-slate-500">
+                        {testimonials[currentIndex].location}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-serif text-base font-bold text-[#356877] group-hover:text-[#DFA528] transition-colors">
-                      {item.name}
-                    </h4>
-                    <p className="text-xs font-semibold text-slate-800">{item.role}</p>
-                    <p className="text-[11px] text-slate-500">{item.location}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Navigation Dots Indicator */}
+            <div className="flex items-center justify-center gap-2 pt-6">
+              {testimonials.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentIndex(idx)}
+                  aria-label={`Go to slide ${idx + 1}`}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    currentIndex === idx
+                      ? "w-8 bg-[#356877]"
+                      : "w-2.5 bg-slate-300 hover:bg-slate-400"
+                  }`}
+                />
+              ))}
+            </div>
+
           </div>
 
         </div>
