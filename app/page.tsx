@@ -58,19 +58,12 @@ export default function HomePage() {
   return (
     <div className="w-full bg-white">
       
-      {/* 1. HERO SECTION (Next.js Image Fill - Crisp on Mobile & Desktop) */}
-      <section className="relative w-full min-h-[480px] sm:min-h-[560px] flex items-center justify-center text-white overflow-hidden py-16 sm:py-24">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/home-hero.webp"
-            alt="Chothani Foundation Community Hero"
-            fill
-            quality={100}
-            priority
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-slate-950/55 backdrop-brightness-95" />
-        </div>
+      {/* 1. HERO SECTION (Fixed Parallax on PC, Responsive Cover on Mobile) */}
+      <section
+        className="relative w-full min-h-[500px] sm:min-h-[560px] flex items-center justify-center text-white bg-cover bg-center md:bg-fixed overflow-hidden py-16 sm:py-24"
+        style={{ backgroundImage: "url('/images/home-hero.webp')" }}
+      >
+        <div className="absolute inset-0 bg-slate-950/50 backdrop-brightness-95" />
 
         <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <motion.h1
@@ -205,18 +198,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. WHY CHOTHANI FOUNDATION EXISTS (Teal Banner Image Fill) */}
-      <section className="relative w-full min-h-[260px] sm:min-h-[300px] flex items-center justify-center text-white overflow-hidden py-10 sm:py-14">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/sector.webp"
-            alt="Why Chothani Foundation Exists Background"
-            fill
-            quality={100}
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-[#356877]/85" />
-        </div>
+      {/* 3. WHY CHOTHANI FOUNDATION EXISTS (sector.webp - Fixed Parallax on PC) */}
+      <section
+        className="relative w-full min-h-[260px] sm:min-h-[300px] flex items-center justify-center text-white bg-cover bg-center md:bg-fixed overflow-hidden py-10 sm:py-14"
+        style={{ backgroundImage: "url('/images/sector.webp')" }}
+      >
+        <div className="absolute inset-0 bg-[#356877]/85" />
 
         <SectionReveal direction="zoom" duration={0.8} className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-3">
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-wide drop-shadow-md">
@@ -317,12 +304,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. BE PART OF THE LEGACY SECTION (Mobile: Image Top, Text Below matching screenshot) */}
+      {/* 5. BE PART OF THE LEGACY SECTION (Mobile: Image Top, Text Below) */}
       <section id="get-involved" className="w-full bg-[#212529] text-white py-12 sm:py-18 scroll-mt-24 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* Image Box - TOP on mobile (order 1), RIGHT on desktop (lg:order-2) */}
+            {/* Image Box - TOP on mobile, RIGHT on desktop */}
             <SectionReveal direction="zoom" className="w-full lg:col-span-6 lg:order-2">
               <motion.div
                 whileHover={{ scale: 1.02, y: -3 }}
@@ -339,7 +326,7 @@ export default function HomePage() {
               </motion.div>
             </SectionReveal>
 
-            {/* Text Content - BELOW image on mobile (order 2), LEFT on desktop (lg:order-1) */}
+            {/* Text Content - BELOW image on mobile, LEFT on desktop */}
             <SectionReveal direction="up" delay={0.1} className="w-full lg:col-span-6 lg:order-1 space-y-5">
               <div className="space-y-2">
                 <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#DFA528]">
@@ -381,12 +368,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. FAMILY & GOVERNANCE SECTION (Mobile: Image Top, Text Below) */}
+      {/* 6. FAMILY & GOVERNANCE SECTION */}
       <section className="w-full bg-white py-12 sm:py-18 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* Left Image: family.webp (TOP on mobile) */}
+            {/* Left Image: family.webp */}
             <SectionReveal direction="left" className="w-full lg:col-span-5">
               <motion.div
                 whileHover={{ scale: 1.02, y: -3 }}
@@ -445,18 +432,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. CLOSING CTA BANNER (Image Fill Container) */}
-      <section className="relative w-full min-h-[240px] sm:min-h-[280px] flex items-center justify-center text-white overflow-hidden py-10 sm:py-14">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/education.webp"
-            alt="Closing CTA Background"
-            fill
-            quality={100}
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-[#356877]/85" />
-        </div>
+      {/* 7. CLOSING CTA BANNER (education.webp - Fixed Parallax on PC) */}
+      <section
+        className="relative w-full min-h-[260px] sm:min-h-[300px] flex items-center justify-center text-white bg-cover bg-center md:bg-fixed overflow-hidden py-10 sm:py-14"
+        style={{ backgroundImage: "url('/images/education.webp')" }}
+      >
+        <div className="absolute inset-0 bg-[#356877]/85" />
 
         <SectionReveal direction="zoom" duration={0.8} className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl text-left">
