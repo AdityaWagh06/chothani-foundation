@@ -203,7 +203,7 @@ export default function HomePage() {
         className="relative w-full h-[260px] sm:h-[300px] flex items-center justify-center text-white bg-fixed bg-cover bg-center overflow-hidden"
         style={{ backgroundImage: "url('/images/sector.webp')" }}
       >
-        <div className="absolute inset-0 bg-[#2F6978]/80 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-[#356877]/85" />
 
         <SectionReveal direction="zoom" duration={0.85} className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-3 py-8 sm:py-12">
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-wide drop-shadow-md">
@@ -452,7 +452,7 @@ export default function HomePage() {
         className="relative w-full h-[260px] sm:h-[300px] flex items-center justify-center text-white bg-fixed bg-cover bg-center overflow-hidden"
         style={{ backgroundImage: "url('/images/education.webp')" }}
       >
-        <div className="absolute inset-0 bg-[#2F6978]/80 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-[#356877]/85" />
 
         <SectionReveal direction="zoom" duration={0.8} className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl text-left">
