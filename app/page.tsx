@@ -237,16 +237,16 @@ export default function HomePage() {
               return (
                 <motion.div
                   key={area.id}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.05, margin: "0px 0px -10px 0px" }}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -45 : 45 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.05, margin: "0px 0px -20px 0px" }}
                   transition={{
-                    duration: 0.75,
-                    delay: (index % 3) * 0.12,
-                    ease: [0.16, 1, 0.3, 1],
+                    duration: 0.45,
+                    delay: (index % 3) * 0.08,
+                    ease: [0.25, 1, 0.5, 1],
                   }}
                   whileHover={{ y: -6, scale: 1.02 }}
-                  className="h-full rounded-2xl bg-white p-6 sm:p-8 border border-gray-100/90 shadow-lg shadow-gray-200/60 hover:shadow-2xl hover:shadow-gray-300/70 transition-all duration-500 text-center space-y-3.5 flex flex-col items-center justify-start group cursor-pointer"
+                  className="h-full rounded-2xl bg-white p-6 sm:p-8 border border-gray-100/90 shadow-lg shadow-gray-200/60 hover:shadow-2xl hover:shadow-gray-300/70 transition-all duration-300 text-center space-y-3.5 flex flex-col items-center justify-start group cursor-pointer"
                 >
                   <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#DFA528]/10 text-[#DFA528] group-hover:bg-[#DFA528] group-hover:text-slate-900 transition-all duration-300 shadow-xs">
                     <IconComponent className="h-8 w-8" />
@@ -270,16 +270,16 @@ export default function HomePage() {
               return (
                 <motion.div
                   key={area.id}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.05, margin: "0px 0px -10px 0px" }}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -45 : 45 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.05, margin: "0px 0px -20px 0px" }}
                   transition={{
-                    duration: 0.75,
-                    delay: (index % 2) * 0.12 + 0.1,
-                    ease: [0.16, 1, 0.3, 1],
+                    duration: 0.45,
+                    delay: (index % 2) * 0.08 + 0.05,
+                    ease: [0.25, 1, 0.5, 1],
                   }}
                   whileHover={{ y: -6, scale: 1.02 }}
-                  className="h-full rounded-2xl bg-white p-6 sm:p-8 border border-gray-100/90 shadow-lg shadow-gray-200/60 hover:shadow-2xl hover:shadow-gray-300/70 transition-all duration-500 text-center space-y-3.5 flex flex-col items-center justify-start group cursor-pointer"
+                  className="h-full rounded-2xl bg-white p-6 sm:p-8 border border-gray-100/90 shadow-lg shadow-gray-200/60 hover:shadow-2xl hover:shadow-gray-300/70 transition-all duration-300 text-center space-y-3.5 flex flex-col items-center justify-start group cursor-pointer"
                 >
                   <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#DFA528]/10 text-[#DFA528] group-hover:bg-[#DFA528] group-hover:text-slate-900 transition-all duration-300 shadow-xs">
                     <IconComponent className="h-8 w-8" />
