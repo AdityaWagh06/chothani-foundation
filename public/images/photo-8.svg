@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <path d="M20 70 Q 50 20 80 60 T 130 50 T 170 75 T 220 40 T 260 70 Q 300 85 360 40" 
+        stroke="#356877" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 90 Q 150 110 320 85" stroke="#DFA528" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <text x="30" y="112" font-family="Georgia, serif" font-size="14" font-style="italic" fill="#2D3748">Dr. Krishnakumar Chothani</text>
+</svg>
