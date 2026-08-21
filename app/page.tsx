@@ -58,37 +58,44 @@ export default function HomePage() {
   return (
     <div className="w-full bg-white">
       
-      {/* 1. HERO SECTION (Ultra-Smooth Initial Load Animations) */}
-      <section
-        className="relative w-full min-h-[520px] sm:min-h-[580px] flex items-center justify-center text-white bg-fixed bg-cover bg-center overflow-hidden"
-        style={{ backgroundImage: "url('/images/home-hero.webp')" }}
-      >
-        <div className="absolute inset-0 bg-slate-950/50 backdrop-brightness-95" />
+      {/* 1. HERO SECTION (Next.js Image Fill - Crisp on Mobile & Desktop) */}
+      <section className="relative w-full min-h-[480px] sm:min-h-[560px] flex items-center justify-center text-white overflow-hidden py-16 sm:py-24">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/home-hero.webp"
+            alt="Chothani Foundation Community Hero"
+            fill
+            quality={100}
+            priority
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-slate-950/55 backdrop-brightness-95" />
+        </div>
 
-        <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-6 py-20 lg:py-28">
+        <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <motion.h1
-            initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
+            initial={{ opacity: 0, y: 35, filter: "blur(8px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
             className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#DFA528] leading-tight drop-shadow-md"
           >
             A Legacy of Healing. A Future of Hope.
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 25, filter: "blur(6px)" }}
+            initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.85, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
-            className="text-sm sm:text-base lg:text-lg text-white/95 leading-relaxed font-normal max-w-3xl mx-auto drop-shadow-sm"
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="text-sm sm:text-base lg:text-lg text-white/95 leading-relaxed font-normal max-w-3xl mx-auto drop-shadow-sm px-2"
           >
             Founded to honour 50 years of selfless service by a rural paediatrician who believed that care, dignity, and opportunity should reach every child&mdash;regardless of geography or circumstance.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.94, filter: "blur(6px)" }}
+            initial={{ opacity: 0, scale: 0.94, filter: "blur(5px)" }}
             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-            transition={{ duration: 0.75, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="pt-2 flex flex-wrap items-center justify-center gap-4"
+            transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="pt-2 flex flex-wrap items-center justify-center gap-3.5"
           >
             <motion.div
               whileHover={{ scale: 1.05, y: -2 }}
@@ -97,7 +104,7 @@ export default function HomePage() {
             >
               <Link
                 href="#story"
-                className="rounded-md bg-[#DFA528] px-6 py-3 text-sm font-semibold text-slate-900 hover:bg-[#C4881E] transition-colors shadow-md block"
+                className="rounded-md bg-[#DFA528] px-5 sm:px-6 py-3 text-sm font-semibold text-slate-900 hover:bg-[#C4881E] transition-colors shadow-md block"
               >
                 Learn Our Story
               </Link>
@@ -110,7 +117,7 @@ export default function HomePage() {
             >
               <Link
                 href="/focus-areas"
-                className="rounded-md border border-white/80 bg-white/10 backdrop-blur-xs px-6 py-3 text-sm font-semibold text-white hover:bg-white hover:text-slate-900 transition-colors shadow-sm block"
+                className="rounded-md border border-white/80 bg-white/10 backdrop-blur-xs px-5 sm:px-6 py-3 text-sm font-semibold text-white hover:bg-white hover:text-slate-900 transition-colors shadow-sm block"
               >
                 Our Focus Areas
               </Link>
@@ -123,7 +130,7 @@ export default function HomePage() {
             >
               <button
                 onClick={() => openDonationModal()}
-                className="rounded-md border border-[#DFA528] bg-black/20 backdrop-blur-xs px-6 py-3 text-sm font-semibold text-[#DFA528] hover:bg-[#DFA528] hover:text-slate-900 transition-colors shadow-sm block"
+                className="rounded-md border border-[#DFA528] bg-black/20 backdrop-blur-xs px-5 sm:px-6 py-3 text-sm font-semibold text-[#DFA528] hover:bg-[#DFA528] hover:text-slate-900 transition-colors shadow-sm block"
               >
                 Support the Cause
               </button>
@@ -132,19 +139,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. INTRO EMBLEM SECTION (Smooth Directional Glide) */}
-      <section id="story" className="w-full bg-white py-14 sm:py-20 overflow-hidden">
+      {/* 2. INTRO EMBLEM SECTION */}
+      <section id="story" className="w-full bg-white py-12 sm:py-20 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             
-            {/* Left Logo Card Slide-in */}
+            {/* Left Logo Card */}
             <SectionReveal direction="left" className="lg:col-span-5">
               <motion.div
-                whileHover={{ scale: 1.02, y: -4 }}
+                whileHover={{ scale: 1.02, y: -3 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative h-64 sm:h-72 lg:h-[300px] w-full rounded-2xl bg-white p-6 border border-gray-100 shadow-xl flex items-center justify-center"
+                className="relative h-60 sm:h-72 lg:h-[300px] w-full rounded-2xl bg-white p-6 border border-gray-100 shadow-xl flex items-center justify-center"
               >
-                <div className="relative h-48 w-48 sm:h-56 sm:w-56">
+                <div className="relative h-44 w-44 sm:h-56 sm:w-56">
                   <Image
                     src="/images/logo-1.webp"
                     alt="Chothani Foundation Official Logo"
@@ -156,7 +163,7 @@ export default function HomePage() {
               </motion.div>
             </SectionReveal>
 
-            {/* Right Text Content Slide-in */}
+            {/* Right Text Content */}
             <SectionReveal direction="right" delay={0.12} className="lg:col-span-7 space-y-4">
               <div className="space-y-1">
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#356877] tracking-wide">
@@ -198,30 +205,36 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. WHY CHOTHANI FOUNDATION EXISTS (Zoom & Soft Blur Reveal) */}
-      <section
-        className="relative w-full h-[260px] sm:h-[300px] flex items-center justify-center text-white bg-fixed bg-cover bg-center overflow-hidden"
-        style={{ backgroundImage: "url('/images/sector.webp')" }}
-      >
-        <div className="absolute inset-0 bg-[#356877]/85" />
+      {/* 3. WHY CHOTHANI FOUNDATION EXISTS (Teal Banner Image Fill) */}
+      <section className="relative w-full min-h-[260px] sm:min-h-[300px] flex items-center justify-center text-white overflow-hidden py-10 sm:py-14">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/sector.webp"
+            alt="Why Chothani Foundation Exists Background"
+            fill
+            quality={100}
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-[#356877]/85" />
+        </div>
 
-        <SectionReveal direction="zoom" duration={0.85} className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-3 py-8 sm:py-12">
+        <SectionReveal direction="zoom" duration={0.8} className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-3">
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-wide drop-shadow-md">
             Why Chothani Foundation Exists
           </h2>
-          <p className="text-sm sm:text-base lg:text-lg text-white/95 leading-relaxed font-normal max-w-3xl mx-auto drop-shadow-sm">
+          <p className="text-sm sm:text-base lg:text-lg text-white/95 leading-relaxed font-normal max-w-3xl mx-auto drop-shadow-sm px-2">
             Chothani Foundation exists to institutionalise compassion&mdash;to transform individual service into a sustainable legacy.
           </p>
-          <p className="text-xs sm:text-sm text-white/80 max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm text-white/80 max-w-2xl mx-auto px-2">
             What began as one doctor&apos;s dedication now evolves into a collective mission to uplift lives with empathy and commitment.
           </p>
         </SectionReveal>
       </section>
 
-      {/* 4. OUR CORE FOCUS AREAS (5 Elevation Cards with Apple-grade Stagger & Spring Physics) */}
-      <section id="focus-areas" className="w-full bg-white py-14 sm:py-20 scroll-mt-24">
+      {/* 4. OUR CORE FOCUS AREAS */}
+      <section id="focus-areas" className="w-full bg-white py-12 sm:py-20 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionReveal direction="up" className="text-center space-y-2 mb-12">
+          <SectionReveal direction="up" className="text-center space-y-2 mb-10 sm:mb-12">
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#356877]">
               Our Core Focus Areas
             </h2>
@@ -230,23 +243,23 @@ export default function HomePage() {
             </p>
           </SectionReveal>
 
-          {/* Row 1 (3 Cards Staggered Animation) */}
+          {/* Row 1 (3 Cards) */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
             {focusAreasRow1.map((area, index) => {
               const IconComponent = area.icon;
               return (
                 <motion.div
                   key={area.id}
-                  initial={{ opacity: 0, y: 40, filter: "blur(6px)" }}
+                  initial={{ opacity: 0, y: 35, filter: "blur(5px)" }}
                   whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{
-                    duration: 0.7,
-                    delay: index * 0.14,
+                    duration: 0.65,
+                    delay: index * 0.12,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  whileHover={{ y: -8, scale: 1.025 }}
-                  className="h-full rounded-xl bg-white p-8 border border-gray-100 shadow-md hover:shadow-2xl transition-all duration-300 text-center space-y-3 flex flex-col items-center justify-start group cursor-pointer"
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  className="h-full rounded-xl bg-white p-6 sm:p-8 border border-gray-100 shadow-md hover:shadow-2xl transition-all duration-300 text-center space-y-3 flex flex-col items-center justify-start group cursor-pointer"
                 >
                   <motion.div
                     whileHover={{ rotate: 10, scale: 1.18 }}
@@ -266,23 +279,23 @@ export default function HomePage() {
             })}
           </div>
 
-          {/* Row 2 (2 Cards Centered Staggered Animation) */}
+          {/* Row 2 (2 Cards Centered) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {focusAreasRow2.map((area, index) => {
               const IconComponent = area.icon;
               return (
                 <motion.div
                   key={area.id}
-                  initial={{ opacity: 0, y: 40, filter: "blur(6px)" }}
+                  initial={{ opacity: 0, y: 35, filter: "blur(5px)" }}
                   whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{
-                    duration: 0.7,
-                    delay: (index + 3) * 0.14,
+                    duration: 0.65,
+                    delay: (index + 3) * 0.12,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  whileHover={{ y: -8, scale: 1.025 }}
-                  className="h-full rounded-xl bg-white p-8 border border-gray-100 shadow-md hover:shadow-2xl transition-all duration-300 text-center space-y-3 flex flex-col items-center justify-start group cursor-pointer"
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  className="h-full rounded-xl bg-white p-6 sm:p-8 border border-gray-100 shadow-md hover:shadow-2xl transition-all duration-300 text-center space-y-3 flex flex-col items-center justify-start group cursor-pointer"
                 >
                   <motion.div
                     whileHover={{ rotate: 10, scale: 1.18 }}
@@ -304,15 +317,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. BE PART OF THE LEGACY SECTION (Smooth Glide & Hover Scale) */}
-      <section id="get-involved" className="w-full bg-[#212529] text-white py-14 sm:py-18 scroll-mt-24 overflow-hidden">
+      {/* 5. BE PART OF THE LEGACY SECTION (Mobile: Image Top, Text Below matching screenshot) */}
+      <section id="get-involved" className="w-full bg-[#212529] text-white py-12 sm:py-18 scroll-mt-24 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* Left Content Slide-in */}
-            <SectionReveal direction="left" className="lg:col-span-6 space-y-5">
+            {/* Image Box - TOP on mobile (order 1), RIGHT on desktop (lg:order-2) */}
+            <SectionReveal direction="zoom" className="w-full lg:col-span-6 lg:order-2">
+              <motion.div
+                whileHover={{ scale: 1.02, y: -3 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="relative h-64 sm:h-[400px] lg:h-[450px] w-full rounded-xl overflow-hidden shadow-2xl border border-gray-700 bg-white"
+              >
+                <Image
+                  src="/images/make-a-change.webp"
+                  alt="Help Us Make a Difference — Chothani Foundation"
+                  fill
+                  quality={100}
+                  className="object-cover object-top"
+                />
+              </motion.div>
+            </SectionReveal>
+
+            {/* Text Content - BELOW image on mobile (order 2), LEFT on desktop (lg:order-1) */}
+            <SectionReveal direction="up" delay={0.1} className="w-full lg:col-span-6 lg:order-1 space-y-5">
               <div className="space-y-2">
-                <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#DFA528]">
+                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#DFA528]">
                   Be Part of the Legacy
                 </h2>
                 <div className="h-0.5 w-14 bg-[#DFA528]" />
@@ -327,33 +357,18 @@ export default function HomePage() {
                   Ways to engage:
                 </h4>
                 <ul className="space-y-2.5 text-sm sm:text-base text-gray-200">
-                  <motion.li
-                    initial={{ opacity: 0, x: -25, filter: "blur(4px)" }}
-                    whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                    transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex items-center gap-3"
-                  >
+                  <li className="flex items-center gap-3">
                     <ArrowRightCircle className="h-5 w-5 text-[#DFA528] shrink-0" />
                     <span>Support initiatives</span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -25, filter: "blur(4px)" }}
-                    whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                    transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex items-center gap-3"
-                  >
+                  </li>
+                  <li className="flex items-center gap-3">
                     <ArrowRightCircle className="h-5 w-5 text-[#DFA528] shrink-0" />
                     <span>Collaborate on projects</span>
-                  </motion.li>
-                  <motion.li
-                    initial={{ opacity: 0, x: -25, filter: "blur(4px)" }}
-                    whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                    transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex items-center gap-3"
-                  >
+                  </li>
+                  <li className="flex items-center gap-3">
                     <ArrowRightCircle className="h-5 w-5 text-[#DFA528] shrink-0" />
                     <span>Spread awareness</span>
-                  </motion.li>
+                  </li>
                 </ul>
               </div>
 
@@ -362,38 +377,21 @@ export default function HomePage() {
               </p>
             </SectionReveal>
 
-            {/* Right Image Card Slide-in */}
-            <SectionReveal direction="right" delay={0.15} className="lg:col-span-6">
-              <motion.div
-                whileHover={{ scale: 1.02, y: -4 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative h-80 sm:h-[420px] lg:h-[460px] w-full rounded-xl overflow-hidden shadow-2xl border border-gray-700"
-              >
-                <Image
-                  src="/images/make-a-change.webp"
-                  alt="Help Us Make a Difference — Chothani Foundation"
-                  fill
-                  quality={100}
-                  className="object-cover object-top"
-                />
-              </motion.div>
-            </SectionReveal>
-
           </div>
         </div>
       </section>
 
-      {/* 6. FAMILY & GOVERNANCE SECTION (Smooth Directional Reveals) */}
-      <section className="w-full bg-white py-14 sm:py-18 overflow-hidden">
+      {/* 6. FAMILY & GOVERNANCE SECTION (Mobile: Image Top, Text Below) */}
+      <section className="w-full bg-white py-12 sm:py-18 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* Left Image: family.webp */}
-            <SectionReveal direction="left" className="lg:col-span-5">
+            {/* Left Image: family.webp (TOP on mobile) */}
+            <SectionReveal direction="left" className="w-full lg:col-span-5">
               <motion.div
-                whileHover={{ scale: 1.02, y: -4 }}
+                whileHover={{ scale: 1.02, y: -3 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative h-72 sm:h-96 lg:h-[360px] w-full rounded-xl overflow-hidden bg-white shadow-xl p-2 border border-gray-200"
+                className="relative h-64 sm:h-96 lg:h-[360px] w-full rounded-xl overflow-hidden bg-white shadow-xl p-2 border border-gray-200"
               >
                 <Image
                   src="/images/family.webp"
@@ -406,12 +404,12 @@ export default function HomePage() {
             </SectionReveal>
 
             {/* Right Content */}
-            <SectionReveal direction="right" delay={0.12} className="lg:col-span-7 space-y-5">
+            <SectionReveal direction="right" delay={0.1} className="w-full lg:col-span-7 space-y-4 sm:space-y-5">
               <div className="space-y-1">
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#356877]">
                   Family & Governance
                 </h2>
-                <h3 className="text-sm font-bold text-[#DFA528] uppercase tracking-wide">
+                <h3 className="text-xs sm:text-sm font-bold text-[#DFA528] uppercase tracking-wide">
                   A Family Legacy
                 </h3>
                 <div className="h-0.5 w-14 bg-[#DFA528] mt-1" />
@@ -447,12 +445,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. CLOSING CTA BANNER (Zoom & Blur Reveal with Spring Button) */}
-      <section
-        className="relative w-full h-[260px] sm:h-[300px] flex items-center justify-center text-white bg-fixed bg-cover bg-center overflow-hidden"
-        style={{ backgroundImage: "url('/images/education.webp')" }}
-      >
-        <div className="absolute inset-0 bg-[#356877]/85" />
+      {/* 7. CLOSING CTA BANNER (Image Fill Container) */}
+      <section className="relative w-full min-h-[240px] sm:min-h-[280px] flex items-center justify-center text-white overflow-hidden py-10 sm:py-14">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/education.webp"
+            alt="Closing CTA Background"
+            fill
+            quality={100}
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-[#356877]/85" />
+        </div>
 
         <SectionReveal direction="zoom" duration={0.8} className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl text-left">

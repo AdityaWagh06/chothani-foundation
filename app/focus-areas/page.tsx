@@ -12,14 +12,21 @@ export default function FocusAreasPage() {
   return (
     <div className="w-full bg-white">
       
-      {/* 1. Full-Width Centered Header Banner (hero-focusareas.webp fixed background) */}
-      <section
-        className="relative w-full h-[300px] sm:h-[360px] flex items-center justify-center text-white bg-fixed bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/hero-focusareas.webp')" }}
-      >
-        <div className="absolute inset-0 bg-[#356877]/85" />
+      {/* 1. Full-Width Header Banner (hero-focusareas.webp Next.js Image Fill) */}
+      <section className="relative w-full min-h-[280px] sm:min-h-[340px] flex items-center justify-center text-white overflow-hidden py-12 sm:py-16">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/hero-focusareas.webp"
+            alt="Our Core Focus Areas Header"
+            fill
+            quality={100}
+            priority
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-[#356877]/85" />
+        </div>
 
-        <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-3 py-12 sm:py-16">
+        <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-3">
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#DFA528] tracking-wide drop-shadow-md">
             Our Core Focus Areas
           </h1>
@@ -29,7 +36,7 @@ export default function FocusAreasPage() {
         </div>
       </section>
 
-      {/* 2. Section 1: Education (Image left education1.webp, text right - exact SS sizing) */}
+      {/* 2. Section 1: Education (Image left education1.webp, text right) */}
       <section className="w-full bg-white py-10 sm:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionReveal>
@@ -80,7 +87,7 @@ export default function FocusAreasPage() {
         </div>
       </section>
 
-      {/* 3. Section 2: Healthcare (Text left, Image right healthcare.webp - exact SS sizing) */}
+      {/* 3. Section 2: Healthcare (Text left, Image right healthcare.webp) */}
       <section className="w-full bg-white py-10 sm:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionReveal>
@@ -130,7 +137,7 @@ export default function FocusAreasPage() {
         </div>
       </section>
 
-      {/* 4. Section 3: Animal Welfare (Image left animals.webp, text right - exact SS sizing) */}
+      {/* 4. Section 3: Animal Welfare (Image left animals.webp, text right) */}
       <section className="w-full bg-white py-10 sm:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionReveal>
@@ -180,7 +187,7 @@ export default function FocusAreasPage() {
         </div>
       </section>
 
-      {/* 5. Section 4: Rural Development (Text left, Image right rural.webp - exact SS sizing) */}
+      {/* 5. Section 4: Rural Development (Text left, Image right rural.webp) */}
       <section className="w-full bg-white py-10 sm:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionReveal>
@@ -230,7 +237,7 @@ export default function FocusAreasPage() {
         </div>
       </section>
 
-      {/* 6. Section 5: Sports Development (Image left sports.webp, text right - exact SS sizing) */}
+      {/* 6. Section 5: Sports Development (Image left sports.webp, text right) */}
       <section className="w-full bg-white py-10 sm:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionReveal>
@@ -280,7 +287,7 @@ export default function FocusAreasPage() {
         </div>
       </section>
 
-      {/* 7. Section 6: Family & Governance (Dark rgb(33, 37, 41) / #212529 section matching SS 5) */}
+      {/* 7. Section 6: Family & Governance (Dark #212529 section) */}
       <section id="governance" className="scroll-mt-24 w-full bg-[#212529] py-14 sm:py-18 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
@@ -337,12 +344,18 @@ export default function FocusAreasPage() {
         </div>
       </section>
 
-      {/* 8. Section 7: Impact & Initiatives Closing Banner (sector.webp background fixed parallax) */}
-      <section
-        className="relative w-full h-[260px] sm:h-[300px] flex items-center justify-center text-white bg-fixed bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/sector.webp')" }}
-      >
-        <div className="absolute inset-0 bg-[#356877]/85" />
+      {/* 8. Section 7: Impact & Initiatives Closing Banner (sector.webp background Next.js Image fill) */}
+      <section className="relative w-full min-h-[260px] sm:min-h-[300px] flex items-center justify-center text-white overflow-hidden py-10 sm:py-14">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/sector.webp"
+            alt="Impact & Initiatives Background"
+            fill
+            quality={100}
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-[#356877]/85" />
+        </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl text-left">
