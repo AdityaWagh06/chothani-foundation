@@ -12,19 +12,12 @@ export default function FocusAreasPage() {
   return (
     <div className="w-full bg-white">
       
-      {/* 1. Full-Width Header Banner (hero-focusareas.webp Next.js Image Fill) */}
-      <section className="relative w-full min-h-[280px] sm:min-h-[340px] flex items-center justify-center text-white overflow-hidden py-12 sm:py-16">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/hero-focusareas.webp"
-            alt="Our Core Focus Areas Header"
-            fill
-            quality={100}
-            priority
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-[#356877]/85" />
-        </div>
+      {/* 1. Full-Width Header Banner (hero-focusareas.webp Fixed Parallax on PC) */}
+      <section
+        className="relative w-full min-h-[280px] sm:min-h-[340px] flex items-center justify-center text-white bg-cover bg-center md:bg-fixed overflow-hidden py-12 sm:py-16"
+        style={{ backgroundImage: "url('/images/hero-focusareas.webp')" }}
+      >
+        <div className="absolute inset-0 bg-[#356877]/85" />
 
         <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-3">
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#DFA528] tracking-wide drop-shadow-md">
@@ -344,18 +337,12 @@ export default function FocusAreasPage() {
         </div>
       </section>
 
-      {/* 8. Section 7: Impact & Initiatives Closing Banner (sector.webp background Next.js Image fill) */}
-      <section className="relative w-full min-h-[260px] sm:min-h-[300px] flex items-center justify-center text-white overflow-hidden py-10 sm:py-14">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/sector.webp"
-            alt="Impact & Initiatives Background"
-            fill
-            quality={100}
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-[#356877]/85" />
-        </div>
+      {/* 8. Section 7: Impact & Initiatives Closing Banner (sector.webp Fixed Parallax on PC) */}
+      <section
+        className="relative w-full min-h-[260px] sm:min-h-[300px] flex items-center justify-center text-white bg-cover bg-center md:bg-fixed overflow-hidden py-10 sm:py-14"
+        style={{ backgroundImage: "url('/images/sector.webp')" }}
+      >
+        <div className="absolute inset-0 bg-[#356877]/85" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl text-left">
