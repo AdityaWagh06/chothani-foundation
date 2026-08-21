@@ -23,7 +23,7 @@ export default function AboutUsPage() {
             priority
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-[#356877]/85" />
+          <div className="absolute inset-0 bg-slate-950/40 backdrop-brightness-95" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-3">
