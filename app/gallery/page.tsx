@@ -23,27 +23,6 @@ export default function GalleryPage() {
   // Pure action & field images only (NO logo backdrop images)
   const galleryItems: GalleryItem[] = [
     {
-      id: "1",
-      title: "Rural Paediatric Health Camp",
-      category: "healthcare",
-      image: "/images/photo-1.jpg",
-      caption: "Free pediatric checkups, diagnosis, and treatment for children in remote rural hamlets.",
-    },
-    {
-      id: "2",
-      title: "Child Health & Wellness Check",
-      category: "healthcare",
-      image: "/images/photo-2.jpg",
-      caption: "Monitoring growth, nutrition, and early wellness intervention for infants and mothers.",
-    },
-    {
-      id: "3",
-      title: "Village Health Consultation",
-      category: "healthcare",
-      image: "/images/photo-3.jpg",
-      caption: "Community healthcare outreach and preventive care guidance for rural families.",
-    },
-    {
       id: "4",
       title: "Community Medical Outreach",
       category: "healthcare",
@@ -56,20 +35,6 @@ export default function GalleryPage() {
       category: "healthcare",
       image: "/images/image003.webp",
       caption: "A legacy of selfless medical care and empathy for children and families.",
-    },
-    {
-      id: "6",
-      title: "Educational Scholarship Distribution",
-      category: "education",
-      image: "/images/photo-4.jpg",
-      caption: "Awarding academic scholarships to deserving students from rural backgrounds.",
-    },
-    {
-      id: "7",
-      title: "Classroom Learning & Supplies",
-      category: "education",
-      image: "/images/photo-5.jpg",
-      caption: "Providing essential learning supplies, books, and slates to village primary schools.",
     },
     {
       id: "8",
