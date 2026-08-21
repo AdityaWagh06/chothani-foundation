@@ -43,26 +43,15 @@ export default function Header() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo - Using official logo-1.webp */}
-        <Link href="/" className="flex items-center gap-3 group focus:outline-none">
-          <div className="relative h-14 sm:h-16 w-14 sm:w-16 transition-transform group-hover:scale-105">
+        <Link href="/" className="flex items-center group focus:outline-none">
+          <div className="relative h-12 sm:h-14 lg:h-16 w-36 sm:w-44 lg:w-52 transition-transform group-hover:scale-[1.03]">
             <Image
               src="/images/logo-1.webp"
               alt="Chothani Foundation Logo"
               fill
-              className="object-contain"
+              className="object-contain object-left"
               priority
             />
-          </div>
-          <div className="hidden sm:flex flex-col">
-            <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-[#356877] leading-none">
-              CHOTHANI
-            </span>
-            <span className="text-[11px] sm:text-xs tracking-widest uppercase text-[#356877] font-semibold mt-0.5">
-              FOUNDATION
-            </span>
-            <span className="text-[10px] text-[#DFA528] font-serif tracking-wider">
-              हिताय सर्वेषम्
-            </span>
           </div>
         </Link>
 
