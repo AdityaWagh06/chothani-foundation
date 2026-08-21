@@ -53,7 +53,7 @@ export default function Header() {
               priority
             />
           </div>
-          <div className="flex flex-col">
+          <div className="hidden sm:flex flex-col">
             <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-[#356877] leading-none">
               CHOTHANI
             </span>
